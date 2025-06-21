@@ -94,9 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.reload();
         });
     } else {
+        const isInSubdirectory = location.pathname.split("/").length > 2;
+        const basePath = isInSubdirectory ? "../" : "";
         userMenu.innerHTML = `
-            <a href="../login/login.html">Login</a>
-            <a href="../register/register.html">Register</a>
+            <a href="${basePath}login/login.html">Login</a>
+            <a href="${basePath}register/register.html">Register</a>
         `;
     }
 
