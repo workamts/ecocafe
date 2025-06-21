@@ -1,0 +1,812 @@
+/*==============================
+=   EcoCafé - CSS
+=   Page: Product
+=   File: product.css
+==============================*/
+
+/*======================================  
+=   Product detail section
+======================================*/
+
+/* Hide product templates */
+#products-container,
+#product-card-template {
+    display: none !important;
+}
+
+.product__detail--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+/* Gallery */
+.product__detail--gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: clamp(300px, 75vw, 500px);
+}
+
+
+/* Main image */
+.product__detail--main-wrapper {
+    position: relative;
+
+}
+
+.product__detail--main-img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 5px 20px #00000033;
+}
+
+
+/* Zoom icon */
+.zoom__icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.zoom__icon svg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--color-quinary);
+}
+
+
+/*------------ Miniatures -------------*/
+.thumbnails__carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.thumbnails__wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.product__detail--thumbnails {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    transition: transform 0.3s;
+}
+
+.product__detail--thumbnails img {
+    aspect-ratio: 1 / 1;
+    width: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+/* Thumbnail navigation arrows */
+.thumb-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    color: var(--color-quinary);
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.thumb-arrow:hover {
+    background: var(--color-septenary);
+    transform: scale(1.05);
+}
+
+.thumb-arrow svg {
+    display: block;
+    width: 28px;
+    height: auto;
+}
+
+
+/*---------- Modal Zoom ----------*/
+.zoom__modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+
+.zoom__modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.close__zoom {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.zoomed__img {
+    aspect-ratio: 1 / 1;
+    width: clamp(300px, 75vw, 600px);
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--color-secondary);
+}
+
+
+/*---------- Product details ----------*/
+.product__detail--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: clamp(300px, 75vw, 600px);
+}
+
+.product__detail--title {
+    font-size: 2.4rem;
+}
+
+.product__detail--origin,
+.product__detail--shortdesc,
+.product__detail--pricekg {
+    font-size: 1rem;
+    color: var(--color-secondary);
+}
+
+.product__detail--origin {
+    font-size: 1.1rem;
+}
+
+.product__container--price {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.product__detail--priceg {
+    font-size: .9rem;
+    color: var(--color-tertiary);
+}
+
+
+/*---------- Purchase details ----------*/
+.product__detail--purchase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.custom__number--input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 5px;
+    background-color: var(--color-octonary);
+}
+.custom__number--input button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--color-secondary);
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.custom__number--input button:hover {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+
+.custom__number--input input[type="number"] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--color-secondary);
+    background: transparent;
+}
+
+
+/* Remove arrows from inputs in Firefox */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.btn__add--cart {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-quaternary);
+    cursor: pointer;
+    transition: opacity 0.3s
+}
+
+.btn__add--cart:hover {
+    opacity: 0.9;
+}
+
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    .product__detail--container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 50px;
+        margin-top: 55px;
+    }
+
+    .product__detail--gallery {
+        flex: 0 0 auto;
+        width: 600px;
+        max-width: 100%;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .product__detail--main-img {
+        width: 600px;
+        max-width: 100%;
+    }
+
+    .thumbnails__carousel {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .thumb-arrow  svg {
+        transform: rotate(90deg);
+    }
+
+    .product__detail--thumbnails {
+        flex-direction: column;
+        width: auto;
+    }
+    .product__detail--info {
+        flex: 1 1 300px;
+        width: clamp(300px, 100%, 500px);
+        margin-top: 0;
+    }
+
+    .product__detail--shortdesc {
+        width: clamp(300px, 100%, 650px);
+    }
+
+    .product__detail--purchase {
+        width: clamp(300px, 100%, 650px);
+    }
+
+    .custom__number--input,
+    .btn__add--cart {
+        height: 40px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================  
+=   Extended Description and 
+=   Additional Data
+======================================*/
+
+.product__description--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-inline: 50px;
+    margin-top: 50px;
+}
+
+.description__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tab__btn {
+    flex: 1 1 45%;
+    min-width: 0;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--color-tertiary);
+    font-size: .9rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-secondary);
+    background-color: transparent;
+    cursor: pointer;
+    transition: border-bottom .2s, color .2s;
+}
+
+.tab__btn.active,
+.tab__btn:hover {
+    border-bottom:  2px solid var(--color-quaternary);
+    color: var(--color-quaternary);
+}
+
+.tab__btn:only-child,
+.description__tabs .tab__btn:nth-child(3):last-child {
+    width: 100%;
+}
+
+.tab__content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tab__content.active {
+    display: flex;
+}
+
+.tab__content h2 {
+    font-size: 1.3rem;
+    letter-spacing: .05rem;
+}
+
+.tab__content--data {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: var(--color-secondary);
+}
+
+.product__description--text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    .product__description--container {
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 30px;
+    }
+
+    .description__tabs {
+        flex-wrap: nowrap;
+        gap: 35px;
+        width: clamp(660px, 75vw, 900px);
+
+    }
+
+    .tab__btn {
+        width: auto;
+        padding-right: 0;
+        text-align: start;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================  
+=   Comments Session
+======================================*/
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-block: 50px 70px;
+    text-align: center;
+}
+
+.comments h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+
+/* Main container for the carousel */
+.comments__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+/* Visible area for scrolling track */
+.comments__wrapper {
+    position: relative;
+    width: clamp(350px, 75vw, 1200px);
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+
+/* Horizontal scrollable track with all comments */
+.comments__track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/*---------- Individual comment card ----------*/
+.comments__article {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    width: 350px;
+    max-width: 350px;
+    padding: 2rem;
+    border: 2px solid var(--color-tertiary);
+    margin: 0;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px var(--color-tertiary);
+}
+
+.comments__article p {
+    margin-top: 10px;
+    font-size: .9rem;
+    color: var(--color-secondary);
+}
+
+
+/* Carousel navigation arrows */
+.comments__arrow {
+    border: none;
+    margin: 0 10px;
+    font-size: 2.4rem;
+    color: var(--color-secondary);
+    background: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.comments__arrow:hover {
+    color: var(--color-quaternary);
+}
+
+
+/*---------- Add Comment Form ----------*/
+.add__comment {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.add__comment h3 {
+    font-size: 1.7rem;
+    letter-spacing: .05rem;
+    text-align: start;
+    color: var(--color-secondary);
+}
+
+#add-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: clamp(300px, 75vw, 600px);
+}
+
+#comment-name,
+#comment-rating,
+#comment-text {
+    width: 100%;
+    height: 40px;
+    padding: 23px 15px;
+    border: 1px solid var(--color-septenary);
+    border-bottom: 3px solid var(--color-secondary);
+    border-radius: 3px 3px 0 0;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: var(--color-secondary);
+    background: var(--color-octonary);
+}
+
+#comment-text {
+    min-height: 200px;
+    max-height: 350px;
+    resize: none;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#comment-name:focus,
+#comment-rating:focus,
+#comment-text:focus {
+    outline: none;
+    box-shadow: 0 5px 10px var(--color-tertiary);
+}
+
+#comment-name::placeholder,
+#comment-text::placeholder {
+    font-size: 1rem;
+}
+
+#add-comment-form button {
+    width: 100%;
+    padding-block: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 5px var(--color-quinary);
+    transition: background-color .4s ease;
+}
+
+#add-comment-form button:hover {
+    background-color: var(--color-quaternary);
+}
+
+
+
+/*======================================  
+=   Product suggestion session
+======================================*/
+
+.product__suggestions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top: 5px solid var(--color-tertiary);
+    margin-bottom: 50px;
+}
+
+
+/*---------- Ribbon (scrolling banner) ----------*/
+.ribbon__container {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    overflow: hidden;
+    background-color: var(--color-primary);
+}
+
+.ribbon__track {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    animation: ribbon-scroll 40s linear infinite;
+}
+
+.ribbon__item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--color-secondary);
+}
+
+.ribbon__item svg {
+    width: 24px;
+    height: auto;
+}
+
+@keyframes ribbon-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Section title */
+.product__suggestions h2 {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+/*---------- Suggestions Carousel ----------*/
+.suggestions__carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+/* Carousel viewport */
+.suggestions__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+/* Scrollable track of product cards */
+.suggestions__track {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Individual suggestion card */
+.suggestion__card {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: center;
+    flex: 0 0 300px;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--color-secondary);
+}
+
+.suggestion__card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px 10px 20px 20px;
+}
+
+
+/* Card text content */
+.suggestion__card--title,
+.suggestion__card--pricekg,
+.suggestion__card--priceg {
+    padding-inline: 20px;
+    color: var(--color-primary);
+}
+
+.suggestion__card--title {
+    margin-top: 10px;
+    font-size: 1.4rem;
+}
+
+.suggestion__card--pricekg,
+.suggestion__card--priceg {
+    font-size: 1rem;
+}
+
+.suggestion__card--priceg {
+    color: var(--color-septenary);
+}
+
+
+/*---------- CTA Button ----------*/
+.container__btn--see {
+    display: flex;
+    justify-content: center;
+}
+
+.btn__see--product {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-block: 10px 20px;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-quaternary);
+    box-shadow: 0 0 10px var(--color-quinary);
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+.btn__see--product:hover {
+    opacity: .8;
+    transform: rotate(5deg);
+}
+
+
+/*---------- Carousel Arrows ----------*/
+.suggestions__carousel .arrow {
+    z-index: 10;
+    padding: 0 10px;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    background: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.suggestions__carousel .arrow:hover {
+    color: var(--color-quaternary);
+}
+
+
+/* Positioning left and right arrows */
+.suggestions__carousel .arrow .left {
+    position: absolute;
+    left: 0;
+}
+
+.suggestions__carousel .arrow .right {
+    position: absolute;
+    right: 0;
+}

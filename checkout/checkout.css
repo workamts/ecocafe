@@ -1,0 +1,766 @@
+/*==============================
+=   EcoCafé - CSS
+=   Page: checkout
+=   File: checkout.css
+==============================*/
+
+/*======================================  
+=   Header
+======================================*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-primary);
+}
+
+#container-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    padding-inline: clamp(0px, calc((100vw - 300px) / 10), 30px);
+}
+
+#top-bar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: clamp(300px, 100%, 100%);
+}
+
+
+/* Logo container */
+#logo-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--color-primary);
+}
+
+#logo-link img {
+    width: 40px;
+    height: auto;
+}
+
+#logo-text {
+    font-size: clamp(1rem, 5vw, 2rem);
+}
+
+
+
+/*======================================  
+=   Main Layout
+======================================*/
+
+main {
+    background-color: var(--color-senary);
+}
+
+main, section, #checkout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+/*======================================  
+=   Forms for Payment Methods
+======================================*/
+
+/* Fieldset and legend for form sections */
+fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(300px, 75vw, 600px);
+    gap: 20px;
+    border: none;
+    margin-top: 30px;
+}
+
+legend {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Input and select styles for all fields */
+input,
+select {
+    width: 100%;
+    height: 40px;
+    padding: 22px 15px;
+    border: 1px solid var(--color-septenary);
+    border-bottom: 2px solid var(--color-secondary);
+    border-radius: 3px 3px 0 0;
+    font-size: 1rem;
+    letter-spacing: .05rem;
+    background-color: var(--color-octonary);
+}
+
+input::placeholder {
+    font-size: .8rem;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--color-septenary);
+}
+
+select {
+    height: 47px;
+    padding: 0;
+    padding-left: 10px;
+    color: var(--color-quinary);
+    cursor: pointer;
+}
+
+
+/*---------- Error and success messages for form validation ----------*/
+
+/* Error message for the fields */
+.input__error {
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: #f44336 !important;
+}
+
+.form__errors {
+    margin-top: 10px;
+}
+
+.success__message {
+    padding: 16px 20px;
+    border: 1px solid var(--color-quaternary);
+    border-radius: 5px;
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--color-quaternary);
+    background: var(--color-primary);
+
+}
+
+/* User's available balance */
+.user__balance {
+    padding: 8px 14px;
+    border: 1px solid var(--color-denary);
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-denary);
+    background: var(--color-primary);
+}
+
+/* Empty cart message */
+.empty__cart--msg {
+    margin: 24px 0;
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--color-septenary);
+}
+
+
+/*--- Document id container ---*/
+#id-doc-container,
+#container-location {
+    display: flex;
+    gap: 15px;
+}
+
+
+/* Save address checkbox container */
+#container-box-save-address {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#container-box-save-address label {
+    cursor: pointer;
+}
+
+
+/* Checkbox and radio button styles */
+#container-box-save-address input[type="checkbox"],
+.shipping__option input[type="radio"],
+.payment__method--radio {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--color-denary);
+    cursor: pointer;
+    appearance: auto;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+    box-shadow: none;
+}
+
+
+
+/*======================================  
+=   Shipping Method Section
+======================================*/
+
+/* Shipping method options layout */
+#shipping-method {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Shipping option card style */
+.shipping__option {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid var(--color-septenary);
+    border-radius: 5px;
+    background-color: var(--color-octonary);
+    cursor: pointer;
+}
+
+
+/* Highlight selected shipping option */
+.shipping__option:has(input[type="radio"]:checked) {
+    border: 3px solid var(--color-tertiary);
+    background-color: var(--color-quinary);
+}
+
+.shipping__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.shipping__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping__option:has(input[type="radio"]:checked) .shipping__info span,
+.shipping__option:has(input[type="radio"]:checked) .shipping__info small {
+    color: var(--color-tertiary);
+}
+
+
+
+/*======================================  
+=   Payment Method Section
+======================================*/
+
+#payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 50px;
+}
+
+
+/* Payment option card style */
+.payment__option {
+    padding: 0;
+    border: 1px solid var(--color-septenary);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: none;
+}
+
+
+/* Payment method content layout */
+.payment__option--content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    border-radius: 7px;
+    background-color: var(--color-primary);
+}
+
+.payment__method--input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    border-radius: 7px 0 25px 0;
+    background: none;
+}
+
+.payment__method--name {
+    position: absolute;
+    top: 17px;
+    left: 38px;
+    width: 100%;
+    height: 100%;
+    font-size: .95rem;
+    letter-spacing: .05rem;
+    cursor: pointer;
+}
+
+
+/* Styles for when the input is checked */
+.payment__method--input-group:has(.payment__method--radio:checked) {
+    background-color: var(--color-secondary);
+}
+
+.payment__method--radio:checked + .payment__method--name {
+    color: var(--color-primary);
+}
+
+
+/* Icons for supported cards */
+.payment__method--icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    padding-inline: 10px;
+    border-radius:  0 7px 0 0;
+    background-color: transparent;
+}
+
+.payment__method--icons img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--color-septenary);
+    border-radius: 3px;
+    object-fit: contain;
+}
+
+
+/* Show/hide extra payment fields */
+.payment__extra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px 30px;
+    border: var(--color-denary);
+    border-radius: 0 0 8px 8px;
+    background: var(--color-primary);
+}
+
+.payment__extra[aria-hidden="true"] {
+    display: none !important;
+}
+.payment__extra[aria-hidden="false"] {
+    display: flex !important;
+}
+
+.payment__extra svg {
+    width: 100px;
+    height: auto;
+    color: var(--color-tertiary);
+}
+
+
+/* Payment gateway fields layout */
+.payment__gateway {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card__exp--cvv {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Cash on delivery content */
+#pce-instructions {
+    font-size: .9rem;
+    margin-bottom: 10px;
+}
+
+.payment__extra ul {
+    font-size: .9rem;
+    color: var(--color-secondary);
+}
+
+.payment__extra ul li::before {
+    content: "-";
+    margin-right: 5px;
+}
+
+
+
+/*======================================  
+=   Order Summary Section
+======================================*/
+
+#order-summary {
+    width: 100%;
+    padding-block: 40px 50px;
+    background-color: var(--color-secondary);
+}
+
+#order-summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: clamp(300px, 75vw, 600px);
+}
+
+
+/* Order summary title */
+#order-summary-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+
+/* Product item layout in summary */
+.item {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.item__img--container {
+    position: relative;
+    display: flex;
+}
+
+.item__img--container img {
+    aspect-ratio: 1 / 1;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.item__quantity {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-primary);
+    pointer-events: none;
+    background-color: transparent;
+}
+
+
+/*---------- Product details ----------*/
+.item__details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product__name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.product__label,
+.product__value {
+    font-size: .9rem;
+    color: var(--color-primary);
+}
+
+.product__total {
+    margin-top: 8px;
+    font-weight: 600;
+    color: var(--color-nonary);
+}
+
+
+/* Remove product button */
+.remove__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    color: var(--color-quinary);
+    cursor: pointer;
+    background: none;
+    transition: filter 0.4s;
+}
+
+.remove__item svg {
+    filter: drop-shadow(0 0 1px var(--color-primary));
+}
+
+.remove__item:hover {
+    filter: brightness(0%);
+}
+
+
+/*---------- Discount code form ----------*/
+#discount-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    gap: 10px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#discount-code {
+    width: 80%;
+    height: 100%;
+    border: 2px solid var(--color-tertiary);
+    border-radius: 3px;
+    margin: 0;
+    letter-spacing: .1rem;
+    color: var(--color-tertiary);
+    background-color: var(--color-quinary);
+}
+
+#discount-code:hover {
+    border: 1px solid var(--color-septenary);
+}
+
+#discount-code:focus {
+    box-shadow: none;
+}
+
+#discount-form button {
+    width: 20%;
+    height: 100%;
+    border: 2px solid var(--color-tertiary);
+    border-radius: 3px;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .05rem;
+    color: var(--color-tertiary);
+    background-color: var(--color-quinary);
+    transition: opacity .3s ease;
+}
+
+#discount-form button:hover {
+    opacity: .8;
+}
+
+
+/*---------- Order totals summary ----------*/
+#summary-total {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#summary-total p {
+    display: flex;
+    justify-content: space-between;
+}
+
+#summary-total p strong,
+#summary-total p span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+#total-order-price {
+    display: flex;
+    align-items: center;
+}
+
+#total-order-price strong,
+#total-order-price span {
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+}
+
+
+/* Pay now button style */
+#pay-now {
+    padding-block: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-quaternary);
+    cursor: pointer;
+    transition: opacity 0.3s
+}
+
+#pay-now:hover {
+    opacity: .8;
+}
+
+
+
+/*======================================  
+=   Footer
+======================================*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-block: 30px;
+    font-size: .9rem;
+}
+
+#footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer__link--items {
+    text-decoration:underline;
+    color: var(--color-quaternary);
+    transition: filter .4s ease;
+}
+
+.footer__link--items:hover {
+    filter: brightness(50%);
+}
+
+
+
+/*======================================  
+=   Success Modal
+======================================*/
+
+.modal-success,
+.success__message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-success {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10001;
+    width: clamp(300px, 75vw, 500px);
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    background: var(--color-nonary);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+    transform: translate(-50%, -50%);
+    animation: modalFadeIn .4s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%);}
+    to   { opacity: 1; transform: translate(-50%, -50%);}
+}
+
+.success__message {
+    gap: 10px;
+    padding: 50px 45px;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
+    background: none;
+}
+
+.success__message h2 {
+    font-size: 1.8rem;
+    letter-spacing: .05rem;
+}
+
+.success__message p strong {
+    color: var(--color-quaternary);
+}
+
+
+/* Modal backdrop overlay */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 10000;
+}
+
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 992px) {
+    body {
+        position: relative;
+    }
+
+    /* Layout for desktop: form and summary side by side */
+    #checkout-container {
+        position: relative;
+        flex-direction: row;
+        justify-content: end;
+        align-items: flex-start;
+        gap: 40px;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    #checkout-form {
+        width: clamp(400px, 45vw, 580px);
+        height: 100%;
+        padding-bottom: 120px;
+    }
+
+    fieldset {
+        width: 100%;
+        height: 100%;
+    }
+
+    #order-summary {
+        position: sticky;
+        top: 0;
+        align-items: start;
+        width: 45%;
+        height: 100vh;
+        padding-inline: 50px;
+    }
+
+    #order-summary-container {
+        width: clamp(300px, 35vw, 450px);
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid var(--color-septenary);
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/

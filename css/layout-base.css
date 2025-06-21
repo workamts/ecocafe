@@ -1,0 +1,126 @@
+/*==============================
+=   EcoCafé - CSS
+=   File: layout-base.css
+==============================*/
+
+/*======================================  
+=   CSS VARIABLES (Custom Properties)
+======================================*/
+
+:root {
+    --color-primary: #faf6f1;
+    --color-secondary: #382618;
+    --color-tertiary: #6b4c35;
+    --color-quaternary: #406e00;
+    --color-quinary: #100d0a;
+    --color-senary: #fbfceb;
+    --color-septenary: #c5c4c0;
+    --color-octonary: #fafafa;
+    --color-nonary: #d4edda;
+    --color-denary: #721c24;
+    --color-undenary: #f8d7da;
+    --font-main: 'Playfair Display', serif;
+    --font-secondary: 'Open Sans', sans-serif;
+}
+
+
+
+/*======================================  
+=   RESET STYLES
+======================================*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*======================================  
+=   BODY AND BASE STYLES
+======================================*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    background-color: var(--color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Font family and color for base elements */
+body, nav, footer, p, a, button, legend, small, span, strong, textarea, input, select, label {
+    font-family: var(--font-secondary);
+    color: var(--color-secondary);
+}
+
+
+/* Headings and logo text styles */
+h1, h2, h3,
+#logo-text,
+#footer-logo-text {
+    font-family: var(--font-main);
+    font-weight: 900;
+    color: var(--color-secondary);
+}
+
+section h1,
+article h1,
+aside h1,
+nav h1 {
+    font-size: 2.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Initial hidden state for scroll reveal elements */
+.scroll__reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.scroll__reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll__reveal.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Prevent scrolling when modal or menu is open */
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}

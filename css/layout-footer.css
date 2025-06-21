@@ -1,0 +1,175 @@
+/*==============================
+=   EcoCafé - CSS
+=   File: layout-footer.css
+==============================*/
+
+/*======================================  
+=   FOOTER
+======================================*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+}
+
+#footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: clamp(300px, 100%, 1200px);
+    margin: 40px 0 40px;
+    padding-inline: 20px;
+}
+
+#footer-contact-list,
+#footer-additional {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* Footer list item (icon + text) */
+#footer-contact-list {
+    gap: 10px;
+}
+
+.footer__list--item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer__icon {
+    width: 28px;
+    height: auto;
+    color: var(--color-secondary);
+}
+
+.footer__list--item p {
+    padding: 0;
+    margin: 0;
+    font-size: .9rem;
+    color: var(--color-quinary);
+}
+
+#footer-additional {
+    gap: 10px;
+}
+
+
+/* Footer logo styles */
+#footer-logo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+#footer-logo img {
+    width: 38px;
+    height: auto;
+}
+
+#footer-logo-text {
+    font-size: 2rem;
+}
+
+
+/* Footer navigation and social networks */
+#footer-nav-networks {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#footer-nav,
+#footer-networks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    letter-spacing: .1rem;
+}
+
+#footer-nav span,
+#footer-networks span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+#footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: .9rem;
+    color: var(--color-quinary);
+}
+
+#footer-nav li {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color .4s ease;
+}
+
+#footer-nav li:hover {
+    border-bottom-color: var(--color-quaternary);
+}
+
+#footer-networks {
+    align-items: end;
+}
+
+
+/* Social networks icon list */
+#networks-list {
+    display: flex;
+    gap: 30px;
+}
+
+#networks-list .footer__icon {
+    width: 24px;
+    transition: transform .2s ease;
+}
+
+#networks-list .footer__icon:hover {
+    transform: scale(1.05);
+}
+
+
+/* Footer copyright */
+footer p {
+    font-size: .8rem;
+    margin-bottom: 20px;
+}
+
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    footer {
+        position: relative;
+    }
+    #footer-content {
+        flex-direction: row;
+        align-items: start;
+        margin-bottom: 100px;
+    }
+
+    #footer-additional {
+        gap: 30px;
+    }
+
+    #footer-logo {
+        position: absolute;
+        left: 50%;
+        bottom: 38px;
+        transform: translate(-50%);
+        margin-bottom: 10px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/

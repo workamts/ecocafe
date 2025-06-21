@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO -->
+    <title>EcoCafé - Artisanal Organic Colombian Coffee</title>
+    <meta name="description" content="EcoCafé offers organic, artisanal coffee directly from small Colombian producers, sustainably grown and pesticide-free." />
+    <meta name="keywords" content="organic coffee, Colombian coffee, EcoCafé, sustainable farming" />
+    <meta name="author" content="Anderson Tovar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tusitio.com/ecocafe/" />
+
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="EcoCafé - Organic Colombian Coffee" />
+    <meta property="og:description" content="Enjoy premium organic coffee from Colombia, grown by small producers." />
+    <meta property="og:image" content="https://tusitio.com/ecocafe/assets/images/coffee-beans-main-view.jpg" />
+    <meta property="og:url" content="https://tusitio.com/ecocafe/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EcoCafé - Organic Colombian Coffee" />
+    <meta name="twitter:description" content="Organic Colombian coffee, grown sustainably without pesticides." />
+    <meta name="twitter:image" content="https://tusitio.com/ecocafe/assets/images/coffee-beans-main-view.jpg" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#382618" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/logo-ecocafe.png" type="image/png" />
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="css/layout-base.css">
+    <link rel="stylesheet" href="css/layout-header.css">
+    <link rel="stylesheet" href="css/layout-main.css">
+    <link rel="stylesheet" href="css/layout-footer.css">
+</head>
+<body role="document">
+    <!-- Header -->
+    <header id="header" role="banner" aria-label="Main site header">
+        <div id="container-header">
+            <a id="logo-link" href="index.html" aria-label="EcoCafé home">
+                <img src="assets/icons/logo-ecocafe.png" alt="EcoCafé Logo" width="64" height="64" loading="eager" decoding="async"/>
+                <span id="logo-text">EcoCafé</span>
+            </a>
+
+            <!-- User area -->
+            <div id="user-area">
+                <!-- Container User -->
+                <div id="user-container">
+                    <div id="access">
+                        <svg class="user__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                            <g id="surface1">
+                            <path style=" stroke:none;fill:currentColor;" d="M 32 28 C 38.628906 28 44 22.628906 44 16 C 44 9.371094 38.628906 4 32 4 C 25.371094 4 20 9.371094 20 16 C 20 22.628906 25.371094 28 32 28 M 56 48 C 56 41.371094 50.628906 36 44 36 L 20 36 C 13.371094 36 8 41.371094 8 48 L 8 60 L 56 60 Z M 56 48 "/>
+                            </g>
+                        </svg>
+                        <p id="user-greeting" aria-live="polite"></p>
+                    </div>
+
+                    <!-- Start Menu/Register -->
+                    <div id="user-menu" aria-label="Menú de usuario">
+                        <a href="login/login.html">Login</a>
+                        <a href="register/register.html">Register</a>
+                        <a id="logout-btn" href="#">Logout</a>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div id="shopping-cart-container">
+                    <button id="cart-container" aria-label="Open shopping cart" aria-haspopup="dialog" aria-expanded="false" aria-controls="shopping-cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                            <g id="surface1">
+                                <path style=" stroke:none;fill: currentColor;" d="M 4.160156 2.285156 C 3.140625 2.273438 2.300781 3.089844 2.285156 4.109375 L 2.285156 5.484375 C 2.285156 6.492188 3.125 7.308594 4.160156 7.308594 L 8.519531 7.308594 C 9.230469 7.308594 9.882812 7.699219 10.199219 8.320312 L 12.558594 13.5625 C 12.648438 13.734375 12.71875 13.929688 12.847656 14.0625 L 22.988281 37.582031 C 22.886719 37.632812 22.792969 37.691406 22.699219 37.753906 C 19.886719 39.824219 17.992188 42.488281 17.988281 45.164062 C 17.988281 46.726562 18.660156 48.183594 20 49.191406 C 21.277344 50.144531 22.9375 50.539062 24.730469 50.539062 L 24.789062 50.539062 C 23.585938 51.753906 22.914062 53.394531 22.910156 55.101562 C 22.910156 58.753906 25.953125 61.714844 29.710938 61.714844 C 33.464844 61.714844 36.507812 58.753906 36.507812 55.101562 C 36.507812 53.335938 35.792969 51.726562 34.632812 50.542969 L 43.539062 50.542969 C 42.339844 51.757812 41.667969 53.394531 41.667969 55.101562 C 41.667969 58.753906 44.707031 61.714844 48.464844 61.714844 C 52.21875 61.714844 55.261719 58.753906 55.261719 55.101562 C 55.261719 53.335938 54.546875 51.726562 53.386719 50.542969 L 54.792969 50.542969 C 55.8125 50.554688 56.652344 49.738281 56.667969 48.71875 L 56.667969 47.804688 C 56.652344 46.785156 55.8125 45.96875 54.792969 45.980469 L 24.730469 45.980469 C 23.585938 45.980469 23.054688 45.722656 22.863281 45.578125 C 22.742188 45.488281 22.675781 45.398438 22.675781 45.167969 C 22.675781 44.550781 23.246094 43.132812 25.300781 41.5625 C 25.390625 41.492188 25.472656 41.417969 25.550781 41.335938 C 25.757812 41.394531 25.972656 41.421875 26.195312 41.421875 L 54.683594 41.421875 C 55.828125 41.421875 56.808594 40.617188 56.996094 39.515625 L 61.679688 12.15625 C 61.921875 10.765625 60.816406 9.5 59.371094 9.5 L 16.808594 9.5 C 16.453125 9.503906 16.125 9.292969 15.976562 8.96875 L 13.371094 3.296875 C 13.046875 2.671875 12.398438 2.28125 11.691406 2.285156 Z M 19.375 14.0625 C 19.070312 14.0625 18.78125 14.214844 18.613281 14.472656 C 18.445312 14.726562 18.414062 15.050781 18.535156 15.335938 L 27.519531 36.308594 C 27.664062 36.644531 27.996094 36.863281 28.359375 36.863281 L 51.925781 36.863281 C 52.371094 36.863281 52.75 36.542969 52.828125 36.101562 L 56.417969 15.128906 C 56.464844 14.863281 56.390625 14.59375 56.214844 14.386719 C 56.042969 14.179688 55.785156 14.0625 55.519531 14.0625 Z M 27.132812 55.101562 C 27.132812 53.714844 28.285156 52.59375 29.710938 52.59375 C 31.132812 52.59375 32.289062 53.714844 32.289062 55.101562 C 32.289062 56.488281 31.132812 57.613281 29.710938 57.613281 C 28.285156 57.613281 27.132812 56.488281 27.132812 55.101562 M 48.464844 52.59375 C 47.039062 52.59375 45.886719 53.714844 45.886719 55.101562 C 45.886719 56.488281 47.039062 57.613281 48.464844 57.613281 C 49.886719 57.613281 51.042969 56.488281 51.042969 55.101562 C 51.042969 53.714844 49.886719 52.59375 48.464844 52.59375 "/>
+                            </g>
+                        </svg>
+                        <span id="cart-count" class="cart__count" aria-live="polite" aria-atomic="true">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Bar -->
+        <nav id="nav" aria-label="Main navigation">
+            <ul id="nav-list">
+                <li><a class="nav__link" href="#products">Products</a></li>
+                <li><a class="nav__link" href="#about-us">About Us</a></li>
+                <li><a class="nav__link" href="#contact-form">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Shopping cart panel -->
+    <div id="shopping-cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div id="overlay" tabindex="-1" aria-hidden="true"></div>
+        <!-- Cart side panel -->
+        <aside id="cart-panel" aria-hidden="true">
+            <div id="cart-header">
+                <h3 id="cart-title">Your cart</h3>
+                <button id="close-cart-btn" aria-label="Close cart" title="Close cart">&times;</button>
+            </div>
+            <template id="cart-item-template">
+                <div class="cart__content" role="region">
+                    <img class="cart__img" src="" alt=""/>
+                    <div class="container__item--info">
+                        <div class="item__info">
+                            <strong class="cart__product--name"></strong>
+                            <p class="cart__details">Presentation: <strong class="cart__kg"></strong></p>
+                            <p class="cart__details">Units: <strong class="cart__qty"></strong></p>
+                            <div class="item__quantity--control">
+                                <button class="cart__btn--decrease" aria-label="Decrease quantity">-</button>
+                                <input class="cart__qty--value" min="1" value="1" aria-label="Quantity">
+                                <button class="cart__btn--increase" aria-label="Increase quantity">+</button>
+                            </div>
+                        </div>
+                        <p class="item__total" aria-label="Total per product"></p>
+                    </div>
+                    <button class="remove__item" aria-label="Remove product">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" version="1.1">
+                            <path d="M52 16H12a1.999 1.999 0 1 1 0-4h40a1.999 1.999 0 1 1 0 4m-2 40c0 2.207-1.793 4-4 4H18c-2.207 0-4-1.793-4-4V20h36ZM26 6c0-1.105.895-2 2-2h8c1.105 0 2 .895 2 2v2H26Zm28 2H42V4c0-2.207-1.793-4-4-4H26c-2.207 0-4 1.793-4 4v4H10c-2.207 0-4 1.793-4 4v4c0 2.207 1.793 4 4 4v36a8 8 0 0 0 8 8h28a8 8 0 0 0 8-8V20c2.207 0 4-1.793 4-4v-4c0-2.207-1.793-4-4-4M32 56c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m-10 0c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m20 0c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m0 0" style="stroke:none;fill-rule:evenodd;fill: currentColor;fill-opacity:1"/>
+                        </svg>
+                    </button>
+                </div>
+            </template>
+            <div id="grid-shopping-cart-products"></div>
+
+            <!-- Shopping Cart Footer -->
+            <div class="cart__footer">
+                <button id="empty-cart-btn" type="button">Empty cart</button>
+                <p>
+                    <strong>Estimated total:</strong>
+                    <span  aria-live="polite" aria-atomic="true"></span>
+                </p>
+                <small>Taxes included. Discounts and <a href="#">shipping</a> calculated at checkout.
+                </small>
+                <button class="checkout__btn">
+                    <a href="checkout/checkout.html" role="button">Pay order</a>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section id="hero" aria-label="Hero section">
+            <div id="container-hero-content">
+                <h1>Artisanal organic coffee</h1>
+                <p>Direct from small Colombian producers to your cup.</p>
+                <a id="hero-button" href="#products" role="button">See products</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="scroll__reveal" aria-labelledby="products-title">
+            <!-- Ribbon -->
+            <div class="ribbon__container">
+                <div class="ribbon__track">
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M28.637 15.395c-1.528-1.528-3.282-2.555-4.992-3.04-.036.614-.11 1.247-.247 1.887a13 13 0 0 1-.242.988c.953 1.149 1.375 2.34 1.723 3.391.371 1.149.664 2.145 1.348 3.027.187.254.425.524.699.797.715.715 1.656 1.446 2.492 1.989.816.55 1.629.918 1.789.925q.036.01.055.02c1.593-2.578.554-6.809-2.625-9.984M30.016 26.75a13 13 0 0 1-1.524-.867 17.8 17.8 0 0 1-2.785-2.227 9 9 0 0 1-.863-.98c-.918-1.219-1.258-2.45-1.621-3.551-.223-.684-.45-1.316-.79-1.922-.878 1.988-2.206 3.906-3.878 5.582-.063.063-.125.117-.184.18.367.496.79.984 1.25 1.45 3.356 3.347 7.871 4.32 10.395 2.335M1.078 23.617c.027-.008.055-.027.082-.027.23-.016 1.406-.55 2.594-1.348 1.219-.797 2.57-1.851 3.613-2.894.395-.395.742-.79 1.024-1.149.98-1.289 1.406-2.73 1.953-4.406.543-1.656 1.219-3.547 2.863-5.352.07-.074.152-.164.238-.257 1.328-1.32 2.805-1.813 4.102-2.309a19 19 0 0 0 1.625-.7c-1.121-.632-2.45-.948-3.875-.948-3.34 0-7.242 1.703-10.422 4.882C.262 13.73-1.242 19.867 1.078 23.617m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                            <path d="M21.918 16.426q.375-.937.61-1.863c.206-.813.32-1.614.347-2.391.07-2.016-.46-3.848-1.64-5.235-1 .622-1.965 1.008-2.805 1.329-1.367.511-2.367.89-3.18 1.707-.04.043-.086.097-.148.164-1.258 1.383-1.79 2.797-2.32 4.41-.528 1.601-1.016 3.398-2.356 5.16-.367.484-.797.961-1.262 1.426-1.219 1.219-2.687 2.355-4.043 3.234-.816.524-1.547.945-2.21 1.258 1.273 1 2.89 1.484 4.675 1.484 3.316 0 7.176-1.675 10.34-4.808q.04-.044.082-.074c1.777-1.778 3.09-3.79 3.91-5.801m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>100% organic coffee</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M26.398 20a4.401 4.401 0 1 0 .005 8.8 4.401 4.401 0 0 0-.005-8.8m0 5.602a1.202 1.202 0 1 1 1.203-1.203c0 .663-.539 1.203-1.203 1.203m4-14.403H27.2V9.191c0-.707.235-1.39.66-1.945.22-.289.176-.7-.066-.973l-1.082-1.207a.81.81 0 0 0-1.234.04A6.4 6.4 0 0 0 24 9.19V11.2h-5.117l-2.805-6.543A2.4 2.4 0 0 0 13.871 3.2H7.2a2.4 2.4 0 0 0-2.398 2.403v7.324c-.434-.336-1.047-.324-1.446.074l-1.554 1.555c-.43.43-.43 1.125 0 1.554l.254.254q-.376.696-.598 1.438h-.355A1.1 1.1 0 0 0 0 18.898v2.2a1.1 1.1 0 0 0 1.102 1.101h.355q.224.742.594 1.438l-.25.254c-.43.43-.43 1.125 0 1.554L3.355 27c.43.43 1.125.43 1.555 0l.254-.254q.693.375 1.434.598v.355c0 .61.496 1.102 1.101 1.102h2.2A1.1 1.1 0 0 0 11 27.699v-.355a7.5 7.5 0 0 0 1.434-.598l.254.254c.43.43 1.128.43 1.554 0l1.559-1.555c.43-.43.43-1.125 0-1.554l-.254-.254q.376-.696.594-1.438h.359a1.1 1.1 0 0 0 1.102-1.097V20.8h4.027c1.094-1.45 2.812-2.399 4.77-2.399.933 0 1.804.23 2.59.61l2.542-2.543c.301-.301.469-.707.469-1.13v-2.538c0-.883-.715-1.602-1.602-1.602M8.801 24c-2.211 0-4-1.79-4-4s1.789-4 4-4a4 4 0 0 1 0 8m1.097-12.8H8V6.397h5.344l2.058 4.801Zm0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Support for small coffee growers</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M31.043 8.637 29.816 2.98a1.048 1.048 0 0 0-1.761-.52l-1.512 1.517C20.262-1.54 10.672-1.316 4.68 4.676A16.03 16.03 0 0 0 .262 18.898c.105.559.64.942 1.215.836.57-.101.945-.644.84-1.214a13.94 13.94 0 0 1 3.84-12.368A13.83 13.83 0 0 1 16 2.082c3.371 0 6.547 1.195 9.066 3.367L23.63 6.891a1.044 1.044 0 0 0 .516 1.757l5.66 1.23c.347.079.71-.03.957-.28.254-.25.36-.614.281-.961M31.738 13.094a1.05 1.05 0 0 0-1.215-.84c-.57.105-.945.648-.84 1.215a13.94 13.94 0 0 1-3.84 12.367A13.83 13.83 0 0 1 16 29.906a13.8 13.8 0 0 1-9.066-3.367l1.437-1.441c.27-.27.371-.664.266-1.032a1.05 1.05 0 0 0-.782-.726l-5.66-1.23a1.03 1.03 0 0 0-.957.285c-.254.25-.36.609-.285.957l1.23 5.66c.083.375.36.672.727.781.375.11.77 0 1.031-.266l1.516-1.511A15.96 15.96 0 0 0 16 31.996c4.098 0 8.2-1.562 11.316-4.683a16.02 16.02 0 0 0 4.422-14.22m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                            <path d="M24.602 12.91a8 8 0 0 0-1.457-.71c-1.438-.524-2.852-.505-4.082.058-.833.387-1.512 1-2.032 1.797v-3.278a1.046 1.046 0 1 0-2.09 0v3.32c-.523-.82-1.218-1.445-2.062-1.84-1.23-.562-2.64-.581-4.078-.058a8 8 0 0 0-1.461.711.37.37 0 0 0-.168.36c.336 2.226 1.418 3.878 3.062 4.664 1.223.566 2.625.593 4.059.07.215-.078.434-.18.648-.281v4.882a1.046 1.046 0 1 0 2.09 0v-4.87c.207.097.414.195.617.269 1.434.523 2.844.496 4.063-.07 1.644-.79 2.727-2.438 3.059-4.664a.36.36 0 0 0-.168-.36m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Eco-friendly packaging</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M26.887 17.887c.636.582.597 1.629-.016 2.242l-5.285 5.285a2 2 0 0 1-1.414.586h-9.344c-.887 0-1.336.477-2 1.164a1 1 0 0 1-.855.3A4 4 0 0 1 4.5 23.5v-2.086a1 1 0 0 1 .293-.707l1.621-1.621a2 2 0 0 1 1.414-.586h2.844c1.633 0 1.52 1.5 3.156 1.5H17.5c.785 0 1.5.637 1.5 1.5 0 .82-.656 1.5-1.5 1.5H11c0 .55.45 1 1 1h5.93c.53 0 1.039-.21 1.418-.586l5.472-5.473a1.503 1.503 0 0 1 2.066-.055M10.28 11.199c-1.48-1.5-1.734-3.902-.453-5.574A4.087 4.087 0 0 1 16 5.219a4.087 4.087 0 0 1 6.172.406 4 4 0 0 1 .812 2.18 3.59 3.59 0 0 1 4.293 1.11c1.094 1.429.93 3.507-.382 4.835l-3.043 3.082c-.43.434-1 .668-1.602.668a2.24 2.24 0 0 1-1.602-.668l-2.25-2.277-.738.75a2.33 2.33 0 0 1-3.32 0Zm8.035 1.848 3.043 3.082a1.28 1.28 0 0 0 1.782 0l3.043-3.082c.964-.977 1.093-2.488.3-3.524a2.59 2.59 0 0 0-3.261-.726 2.9 2.9 0 0 0-.618.473.5.5 0 0 1-.71-.004 2.57 2.57 0 0 0-1.829-.766c-.05 0-.101.004-.156.004-.75.047-1.426.41-1.894 1.02-.793 1.035-.664 2.546.3 3.523m-12.175 1.8a.5.5 0 0 0 .718 0l1.246-1.277c.438-.449.524-1.172.133-1.664a1.158 1.158 0 0 0-1.738-.09 1.158 1.158 0 0 0-1.738.09c-.39.492-.305 1.215.133 1.664Zm0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Made with love and respect</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M20.906 8.793c-.847-1.895-2.523-3.883-5.113-6.008A48 48 0 0 0 12 0c0 1.605-.254 3.055-.672 4.398-.836 2.696-2.332 4.946-3.758 7.086C5.723 14.266 4 16.86 4 20c0 6.629 5.371 12 12 12s12-5.371 12-12a12.3 12.3 0 0 0-.52-3.48c-.425-1.454-1.093-2.852-1.914-4.18q-.315-.509-.66-1c0 1.683-.773 3.285-1.902 4.64-.414.5-.879.965-1.371 1.391a13.2 13.2 0 0 1-2.41 1.652q-.181.094-.356.18c-.863.418-1.262-.473-.57-1.137q.006-.01.012-.015 1.157-1.114 1.914-2.246c.972-1.453 1.433-2.934 1.34-4.465-.051-.832-.266-1.68-.657-2.547m3.07 11.836a17 17 0 0 1-3.363 2.172c-.797.387-1.937.691-3.215.387a4.46 4.46 0 0 1-3.011-2.422c-1.09-2.29-.02-4.47 1.129-5.578 2.191-2.114 2.218-3.344 1.922-4.29-.293-.933-1.102-2.207-2.817-3.824-1.02 2.57-2.422 4.68-3.578 6.414l-.14.211C8.91 16.7 8 18.277 8 20a8 8 0 0 0 15.977.629m0 0" style="stroke:none;fill-rule:evenodd;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Intense and natural flavor</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M16 32C7.2 32 0 24.8 0 16S7.2 0 16 0s16 7.2 16 16-7.2 16-16 16M2.934 13.332c-.133.8-.266 1.734-.266 2.668 0 7.332 6 13.332 13.332 13.332h.668c-.402-.664-.668-1.598-.668-2.797 0-.933-.398-1.203-1.332-1.734-1.734-.801-3.469-2.133-2.133-5.867 0-.133-.535-.266-.8-.399-1.47-.402-1.868-1.601-2-2.402-.133-.531-.27-1.2-.801-1.598-.934-.933-4-1.336-6-1.203M12.398 16c.403.133 1.735.535 2.403 1.734.398.664.398 1.332.133 2.133-.668 1.867-.399 2 .8 2.531 1.067.536 2.934 1.47 2.934 4.137 0 .664.133 1.332.531 1.73.266.27.403.403.668.403.531 0 .531-.668.531-.934 0-2.132 1.067-3.734 1.868-5.066.535-.934 1.066-1.734 1.066-2.402 0-.934-.531-1.332-1.867-1.868-.399-.132-.797-.398-1.2-.53l-1.199-.802C18.266 16.398 17.734 16 16 16h-.535l-.399-.398c-.8-.668-3.066-2.668-1.601-5.602.402-.8 1.07-1.332 1.601-1.734.934-.664 1.47-1.067 1.47-2.801 0-1.465-1.337-2.797-2-2.797-4.802.531-8.934 3.598-10.802 7.867 2 0 5.465.266 7.067 2.133.933.934 1.199 2 1.332 2.797.133.27.265.402.265.535m4.137-2.668c2.133.133 3.2.8 4.133 1.469.266.265.531.398.934.531.265.133.53.27.933.402 1.332.664 3.465 1.598 3.465 4.399 0 1.601-.8 2.8-1.465 3.867-.668 1.066-1.336 2-1.336 3.2 3.602-2.266 6.133-6.4 6.133-11.2 0-6.535-4.664-11.867-10.797-13.066.399.8.664 1.734.664 2.668 0 3.066-1.597 4.265-2.664 4.933-.402.266-.668.531-.8.664-.133.535-.27 1.067.8 2.133m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Environmental commitment</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M21.973 11.168V6.789h-3.72L13.704 0H6.617l4.555 6.79h-1.145v4.378c-3.183 1.996-5.304 5.523-5.304 9.555C4.723 26.949 9.773 32 16 32s11.277-5.05 11.277-11.277c-.004-4.032-2.125-7.559-5.304-9.555m-9.97-2.402h7.99v1.422A11.2 11.2 0 0 0 16 9.445c-1.41 0-2.754.27-3.996.742ZM16 29.036c-4.582 0-8.312-3.731-8.312-8.313s3.73-8.309 8.312-8.309 8.313 3.727 8.313 8.309-3.731 8.312-8.313 8.312m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                            <path d="M21.82 5.309 25.383 0h-7.086l-1.45 2.164 2.11 3.145ZM13.2 17.48l.331 1.508 1.64-.781h.028v6.816h1.946v-8.601h-1.668Zm0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                        </svg>
+                        <span>Quality guaranteed</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M11.27 4.412c.232-.521.346-.78.507-.861a.52.52 0 0 1 .446 0c.16.082.275.34.506.861l1.846 4.137c.068.152.103.228.155.287a.5.5 0 0 0 .167.123c.074.032.156.041.326.059l4.503.474c.565.062.85.091.972.22a.49.49 0 0 1 .138.422c-.026.178-.237.369-.66.75l-3.363 3.032c-.125.111-.187.167-.228.237a.5.5 0 0 0-.064.197c-.006.079.008.16.043.325l.94 4.432c.118.557.18.832.095.994a.5.5 0 0 1-.36.26c-.177.03-.423-.111-.915-.395L12.398 17.7c-.143-.082-.216-.126-.295-.14a.5.5 0 0 0-.208 0c-.077.014-.15.058-.293.14l-3.926 2.265c-.492.284-.739.425-.914.395a.5.5 0 0 1-.36-.26c-.086-.162-.027-.437.093-.994l.94-4.432c.033-.164.05-.246.044-.325a.5.5 0 0 0-.064-.197c-.041-.07-.103-.126-.228-.237l-3.364-3.032c-.422-.381-.635-.572-.662-.75a.5.5 0 0 1 .138-.422c.126-.129.41-.158.975-.22l4.503-.474c.167-.018.252-.027.326-.059.061-.03.12-.07.167-.123.052-.059.087-.135.155-.287Zm0 0" style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4" transform="scale(1.33333)"/>
+                        </svg>
+                        <span>Satisfaction guaranteed</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M12 6.999v13.002m0-13.002H8.464c-.522 0-1.02-.21-1.389-.586a2 2 0 0 1-.574-1.412c0-.53.205-1.04.574-1.415C7.445 3.21 7.942 3 8.464 3 11.214 3 12 6.999 12 6.999m0 0h3.536c.522 0 1.02-.21 1.389-.586a2 2 0 0 0 .574-1.412c0-.53-.205-1.04-.574-1.415A1.95 1.95 0 0 0 15.536 3C12.786 3 12 6.999 12 6.999M5.001 12h13.998v5.8c0 1.12 0 1.68-.217 2.107a2 2 0 0 1-.873.876c-.428.217-.99.217-2.11.217H8.2c-1.119 0-1.681 0-2.11-.217a2 2 0 0 1-.872-.876C5 19.48 5 18.92 5 17.801ZM4.6 12h14.8c.56 0 .841 0 1.055-.108.188-.097.34-.25.437-.437C21 11.241 21 10.96 21 10.4V8.6c0-.56 0-.838-.108-1.052a1 1 0 0 0-.437-.437C20.241 7 19.96 7 19.4 7H4.6c-.56 0-.841 0-1.055.111a1 1 0 0 0-.437.437C3 7.76 3 8.039 3 8.599V10.4c0 .56 0 .841.108 1.055.097.188.25.34.437.437C3.759 12 4.04 12 4.6 12m0 0" style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4" transform="scale(1.33333)"/>
+                        </svg>
+                        <span>Ideal for gifting</span>
+                    </div>
+                    <div class="ribbon__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+                            <path d="M3 9.999A1 1 0 0 1 3.999 9h3v12h-3A1 1 0 0 1 3 20.001Zm0 0" style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4" transform="scale(1.33333)"/>
+                            <path d="M6.999 11.001v7.998l1.992 1.33c.66.437 1.43.671 2.22.671h5.248a3 3 0 0 0 2.959-2.508l1.195-7.163A2.002 2.002 0 0 0 18.64 9H14" style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4" transform="scale(1.33333)"/>
+                            <path d="m14.001 9 .686-3.437A1.806 1.806 0 0 0 11.3 4.4L8 11.001H6.999" style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4" transform="scale(1.33333)"/>
+                        </svg>
+                        <span>Over 1,000 happy customers</span>
+                    </div>
+                    <!-- we duplicate for infinite scroll -->
+                </div>
+            </div>
+
+            <!-- Only visible if the user is admin -->
+            <button id="admin-add-product-btn" type="button" aria-controls="admin-product-form" aria-expanded="false">+ Add new product</button>
+            <form id="admin-product-form" aria-label="Form to add product" hidden>
+                <h3>New product</h3>
+                <div class="form__group--admin">
+                    <label for="new-product-name">Name:</label>
+                    <input id="new-product-name" type="text" placeholder="Ej: Café Orgánico Supremo" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-origin">Origin:</label>
+                    <input id="new-product-origin" type="text" placeholder="Ej: Sierra Nevada, Colombia" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-shortdesc">Short description:</label>
+                    <input id="new-product-shortdesc" type="text" placeholder="Short description" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-description">Long description:</label>
+                    <textarea id="new-product-description" placeholder="Long description" required></textarea>
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-pricekg">Price per kg:</label>
+                    <input id="new-product-pricekg" type="number" placeholder="Ej: 70000" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-priceg">Price per g:</label>
+                    <input id="new-product-priceg" type="number" placeholder="Ej: 25000" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-stock">Stock (kg):</label>
+                    <input id="new-product-stock" type="number" placeholder="Ej: 100" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-images">Images <span>(URLs, separated by commas)</span>:</label>
+                    <input id="new-product-images" type="text" placeholder="https://img1.jpg, https://img2.jpg" required />
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-benefits">Benefits <span>(one per line)</span>:</label>
+                    <textarea id="new-product-benefits" placeholder="Benefit 1&#10;Benefit 2"></textarea>
+                </div>
+                <div class="form__group--admin">
+                    <label for="new-product-additional">Additional information <span>(format: Label:Value, one per line)</span>:</label>
+                    <textarea id="new-product-additional" placeholder="Height:1.800 m s.n.m&#10;Varietal:Caturra"></textarea>
+                </div>
+                <button id="submit-new-product" type="submit">Add product</button>
+            </form>
+
+            <!-- Card container used to add products -->
+            <div id="products-container" class="products__grid" aria-live="polite"></div>
+            <!-- structure that the products added with js will have -->
+            <template id="product-card-template">
+                <div class="product__card">
+                    <img class="product__card--image" src="" alt="" loading="lazy" decoding="async">
+                    <div class="product__details">
+                        <h3 class="product__card--title"></h3>
+                        <p class="product__description"></p>
+                        <p class="product__presentation">Presentation: 1 kg</p>
+                        <p class="admin__only">
+                            available stock: <span class="stock__available"></span> kg
+                            <span class="stock__warning" aria-live="polite"></span>
+                        </p>
+                        <div class="quantity__control">
+                            <button class="btn__decrease" type="button" aria-label="Decrease quantity">−</button>
+                            <input class="quantity__input" type="text" value="1" readonly>
+                            <button class="btn__increase" type="button" aria-label="Increase quantity">+</button>
+                        </div>
+                        <div class="container__price--purchase">
+                            <span></span>
+                            <button class="btn__add--product" type="button">Add to cart</button>
+                        </div>
+                        <button class="btn__delete--product admin__only">Remove product</button>
+                    </div>
+                </div>
+            </template>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-us" class="scroll__reveal" aria-labelledby="about-title">
+            <img src="assets/images/representative-image-coffee.jpg" width="360" height="540" alt="image about ecocafe" loading="lazy" decoding="async">
+            <div id="container-about-us">
+                <h2>About EcoCafé</h2>
+                    <p>
+                        At <strong>EcoCafé</strong>, we believe that good coffee not only awakens your senses but also cares for the planet and those who grow it. We are a brand committed to artisanal and organic coffee production, working directly with coffee-growing communities that practice sustainable and ethical methods.
+                    </p>
+                    <p>
+                        Each EcoCafé bean is grown without chemicals, in rich soils protected by native forests, ensuring an authentic, deep, and nuanced flavor. We strive to preserve biodiversity, support fair trade, and offer a healthy, natural, and high-quality product.
+                    </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <form id="contact-form" class="scroll__reveal" novalidate aria-labelledby="contact-form-title" autocomplete="off">
+            <fieldset>
+                <legend id="contact-form-title">Contact us</legend>
+
+                <!-- Honeypot para bots -->
+                <div class="honeypot" aria-hidden="true">
+                    <label for="website">No llenar este campo</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form__group">
+                    <label for="fullname">Full name <span aria-hidden="true">*</span></label>
+                    <small id="fullname-help">Only letters, at least 3 characters.</small>
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        required
+                        minlength="3"
+                        maxlength="60"
+                        pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s.'-]+$"
+                        aria-required="true"
+                        aria-describedby="fullname-help fullname-error"
+                        autocomplete="name"
+                        placeholder="Ej: Juan Pérez"
+                    >
+                    <div class="error__message" id="fullname-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group">
+                    <label for="email">Email <span aria-hidden="true">*</span></label>
+                    <small id="email-help">Must be a valid email.</small>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        maxlength="80"
+                        aria-required="true"
+                        aria-describedby="email-help email-error"
+                        autocomplete="email"
+                        placeholder="Ej: correo@ejemplo.com"
+                    >
+                    <div class="error__message" id="email-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group">
+                    <label for="phone">Phone (optional)</label>
+                    <small id="phone-help">Only numbers, spaces, and symbols + ( ) -</small>
+                    <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        maxlength="20"
+                        inputmode="tel"
+                        pattern="^(\+\d{1,3}\s)?\d{7,16}$"
+                        aria-describedby="phone-help phone-error"
+                        autocomplete="tel"
+                        placeholder="Ej: +12 34567890">
+                    <div class="error__message" id="phone-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group">
+                    <label for="subject">Affair <span aria-hidden="true">*</span></label>
+                    <small id="subject-help">Between 4 and 80 characters.</small>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        minlength="4"
+                        maxlength="80"
+                        aria-required="true"
+                        aria-describedby="subject-help subject-error"
+                        placeholder="Motivo de tu mensaje"
+                    >
+                    <div class="error__message" id="subject-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group">
+                    <label for="message">Message <span aria-hidden="true">*</span></label>
+                    <small id="message-help">Between 10 and 1000 characters.</small>
+                    <textarea
+                        id="message"
+                        name="message"
+                        required
+                        minlength="10"
+                        maxlength="1000"
+                        aria-required="true"
+                        aria-describedby="message-help message-error"
+                        placeholder="Write your message here..."
+                    ></textarea>
+                    <div class="error__message" id="message-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group checkbox__group">
+                    <div class="container__privacy--policy">
+                        <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                        aria-required="true"
+                        aria-describedby="terms-error">
+                        <label for="terms">I accept the <a href="#" target="_blank">privacy policy</a> <span aria-hidden="true">*</span></label>
+                    </div>
+                    <div class="error__message" id="terms-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form__group">
+                    <button
+                        id="submit-btn"
+                        type="submit"
+                        aria-disabled="true"
+                        aria-busy="false">
+                        <span id="submit-btn-text">Send message</span>
+                        <span id="submit-btn-loader" class="loader" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="form__success" id="form-success" role="alert" aria-live="assertive"></div>
+            </fieldset>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div id="footer-content">
+            <ul id="footer-contact-list">
+                <li class="footer__list--item">
+                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:evenodd;fill: currentColor;" d="M 10 14 L 8 16 L 8 48 L 10 50 L 54 50 L 56 48 L 56 16 L 54 14 Z M 12 20.523438 L 12 46 L 52 46 L 52 20.519531 L 32 38.703125 Z M 48.828125 18 L 15.171875 18 L 32 33.296875 Z M 48.828125 18 "/>
+                        </g>
+                    </svg>
+                    <p><a href="mailto:info@ecocafe.com">info@ecocafe.com</a></p>
+                </li>
+
+                <li class="footer__list--item">
+                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="64" height="54" viewBox="0 0 64 64" version="1.1">
+                        <path d="M63.96 51.398a6.42 6.42 0 0 0-2.48-4.691l-8.53-6.668a6.41 6.41 0 0 0-7.962.027l-1.906 1.508a3.796 3.796 0 0 1-5.027-.293L22.789 25.973a3.807 3.807 0 0 1-.293-5.04L24 19.028a6.47 6.47 0 0 0 .027-7.976l-6.652-8.559A6.453 6.453 0 0 0 8.32 1.36a6 6 0 0 0-.613.547L2.254 7.371c-2.332 2.348-8 11.95 17.215 37.215C35.496 60.625 45.242 64 50.602 64c3.187 0 5.039-1.172 6.027-2.16l5.453-5.465a6.5 6.5 0 0 0 1.879-4.977m-3.464 2.75c-.094.118-.2.239-.309.332l-5.453 5.465c-.625.63-1.851 1.387-4.132 1.387-3.973 0-13.055-2.414-29.243-18.64C2.695 23.983.414 12.983 4.15 9.237l5.453-5.465a3.79 3.79 0 0 1 2.68-1.109c.077 0 .16 0 .238.016a3.77 3.77 0 0 1 2.75 1.453l6.652 8.558a3.81 3.81 0 0 1-.016 4.696l-1.504 1.89a6.463 6.463 0 0 0 .504 8.575l15.27 15.308c2.304 2.32 6 2.531 8.558.508l1.907-1.508a3.77 3.77 0 0 1 4.668-.015l8.535 6.667a3.8 3.8 0 0 1 .652 5.336m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                    </svg>
+                    <p><a href="tel:+571234567890">+57 123 4567890</a></p>
+                </li>
+                <li class="footer__list--item">
+                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                        <g id="surface1">
+                            <path style="fill:none;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4;" d="M 96 21.996094 C 82.195312 22.007812 68.964844 27.515625 59.226562 37.300781 C 49.464844 47.121094 43.992187 60.398437 44.003906 74.25 C 44.003906 90.84375 48.292969 102.914062 64.816406 123.140625 C 72.480469 131.871094 79.207031 141.375 84.867187 151.523437 C 90.855469 163.722656 90.140625 171.996094 96 171.996094 C 101.859375 171.996094 101.144531 163.722656 107.132812 151.523437 C 112.792969 141.375 119.519531 131.871094 127.183594 123.140625 C 143.707031 102.914062 147.996094 90.84375 147.996094 74.25 C 148.007812 60.398437 142.535156 47.121094 132.773437 37.300781 C 123.035156 27.515625 109.804687 22.007812 96 21.996094 Z M 96 21.996094 " transform="matrix(0.333333,0,0,0.333333,0,0)"/>
+                            <path style="fill:none;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke:currentColor;stroke-opacity:1;stroke-miterlimit:4;" d="M 116.003906 74.003906 C 116.003906 62.953125 107.050781 54 96 54 C 84.949219 54 75.996094 62.953125 75.996094 74.003906 C 75.996094 85.042969 84.949219 93.996094 96 93.996094 C 107.050781 93.996094 116.003906 85.042969 116.003906 74.003906 Z M 116.003906 74.003906 " transform="matrix(0.333333,0,0,0.333333,0,0)"/>
+                        </g>
+                        </svg>
+                    <p>123rd Street, Bogotá, Colombia</p>
+                </li>
+            </ul>
+            <div id="footer-additional">
+                <div id="footer-logo">
+                    <img src="assets/icons/logo-ecocafe.png" alt="EcoCafé Logo" width="64" height="64" loading="lazy" decoding="async">
+                    <span id="footer-logo-text">EcoCafé</span>
+                </div>
+                <div id="footer-nav-networks">
+                    <div id="footer-nav" aria-label="Footer navigation links">
+                        <span>Links</span>
+                        <ul>
+                            <li><a href="#header">Start</a></li>
+                            <li><a href="#products">Products</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer-networks">
+                        <span>Follow us</span>
+                        <ul id="networks-list">
+                            <li>
+                                <a href="#" aria-label="Facebook" rel="noopener" target="_blank">
+                                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                                        <path d="M32 6C17.664 6 6 17.664 6 32c0 12.8 9.408 23.36 21.6 25.6V41.6h-6.4V32h6.4v-5.6c0-6.336 3.776-9.6 9.6-9.6 2.784 0 5.6.48 5.6.48v6.24h-3.168c-3.136 0-4.032 1.952-4.032 3.936V32h7.04l-1.12 9.6h-5.92v16C48.592 55.36 58 44.8 58 32c0-14.336-11.664-26-26-26z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Twitter" rel="noopener" target="_blank">
+                                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                                        <g id="surface1">
+                                            <path style=" stroke:none;fill-rule:evenodd;fill:currentColor;fill-opacity:1;" d="M 20.128906 57.601562 C 44.277344 57.601562 57.488281 37.902344 57.488281 20.816406 C 57.488281 20.257812 57.488281 19.699219 57.449219 19.144531 C 60.011719 17.320312 62.230469 15.050781 64 12.449219 C 61.601562 13.496094 59.0625 14.183594 56.460938 14.488281 C 59.191406 12.882812 61.242188 10.34375 62.234375 7.335938 C 59.648438 8.84375 56.832031 9.90625 53.894531 10.472656 C 48.882812 5.265625 40.628906 5.019531 35.316406 9.914062 C 31.910156 13.042969 30.460938 17.765625 31.515625 22.265625 C 21 21.761719 11.179688 16.863281 4.453125 8.761719 C 0.972656 14.675781 2.765625 22.28125 8.523438 26.015625 C 6.433594 25.960938 4.390625 25.40625 2.558594 24.398438 L 2.558594 24.5625 C 2.5625 30.71875 6.96875 36.015625 13.09375 37.234375 C 11.160156 37.753906 9.136719 37.832031 7.167969 37.457031 C 8.886719 42.722656 13.816406 46.328125 19.433594 46.433594 C 13.910156 50.699219 6.929688 52.621094 0 51.792969 C 6.023438 55.59375 13.003906 57.601562 20.128906 57.589844 "/>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Instagram" rel="noopener" target="_blank">
+                                    <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" viewBox="0 0 64 64" version="1.1">
+                                        <g id="surface1">
+                                            <path style=" stroke:none;fill-rule:evenodd;fill:currentColor;fill-opacity:1;" d="M 32 48 C 40.835938 48 48 40.835938 48 32 C 48 23.164062 40.835938 16 32 16 C 23.164062 16 16 23.164062 16 32 C 16 40.835938 23.164062 48 32 48 M 32 42.667969 C 37.890625 42.667969 42.667969 37.890625 42.667969 32 C 42.667969 26.109375 37.890625 21.332031 32 21.332031 C 26.109375 21.332031 21.332031 26.109375 21.332031 32 C 21.332031 37.890625 26.109375 42.667969 32 42.667969 "/>
+                                            <path style=" stroke:none;fill-rule:nonzero;fill: currentColor;fill-opacity:1;" d="M 48 13.332031 C 46.527344 13.332031 45.332031 14.527344 45.332031 16 C 45.332031 17.472656 46.527344 18.667969 48 18.667969 C 49.472656 18.667969 50.667969 17.472656 50.667969 16 C 50.667969 14.527344 49.472656 13.332031 48 13.332031 "/>
+                                            <path style=" stroke:none;fill-rule:evenodd;fill: currentColor;fill-opacity:1;" d="M 4.410156 11.402344 C 2.667969 14.828125 2.667969 19.308594 2.667969 28.265625 L 2.667969 35.734375 C 2.667969 44.691406 2.667969 49.171875 4.410156 52.597656 C 5.945312 55.609375 8.390625 58.054688 11.402344 59.589844 C 14.828125 61.332031 19.308594 61.332031 28.265625 61.332031 L 35.734375 61.332031 C 44.691406 61.332031 49.171875 61.332031 52.597656 59.589844 C 55.609375 58.054688 58.054688 55.609375 59.589844 52.597656 C 61.332031 49.171875 61.332031 44.691406 61.332031 35.734375 L 61.332031 28.265625 C 61.332031 19.308594 61.332031 14.828125 59.589844 11.402344 C 58.054688 8.390625 55.609375 5.945312 52.597656 4.410156 C 49.171875 2.667969 44.691406 2.667969 35.734375 2.667969 L 28.265625 2.667969 C 19.308594 2.667969 14.828125 2.667969 11.402344 4.410156 C 8.390625 5.945312 5.945312 8.390625 4.410156 11.402344 M 35.734375 8 L 28.265625 8 C 23.699219 8 20.59375 8.003906 18.191406 8.199219 C 15.851562 8.390625 14.660156 8.738281 13.824219 9.164062 C 11.816406 10.183594 10.183594 11.816406 9.164062 13.824219 C 8.734375 14.660156 8.390625 15.851562 8.203125 18.191406 C 8.003906 20.59375 8 23.699219 8 28.265625 L 8 35.734375 C 8 40.300781 8.003906 43.40625 8.199219 45.808594 C 8.390625 48.148438 8.738281 49.339844 9.164062 50.175781 C 10.183594 52.183594 11.816406 53.816406 13.824219 54.835938 C 14.660156 55.265625 15.851562 55.609375 18.191406 55.796875 C 20.59375 55.996094 23.699219 56 28.265625 56 L 35.734375 56 C 40.300781 56 43.40625 55.996094 45.808594 55.800781 C 48.148438 55.609375 49.339844 55.261719 50.175781 54.835938 C 52.183594 53.816406 53.816406 52.183594 54.835938 50.175781 C 55.265625 49.339844 55.609375 48.148438 55.796875 45.808594 C 55.996094 43.40625 56 40.300781 56 35.734375 L 56 28.265625 C 56 23.699219 55.996094 20.59375 55.800781 18.191406 C 55.609375 15.851562 55.261719 14.660156 54.835938 13.824219 C 53.816406 11.816406 52.183594 10.183594 50.175781 9.164062 C 49.339844 8.734375 48.148438 8.390625 45.808594 8.203125 C 43.40625 8.003906 40.300781 8 35.734375 8 "/>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2025 EcoCafé. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main-body-header.js" defer></script>
+    <script src="js/main-products.js" defer></script>
+    <script src="js/main-contact.js" defer></script>
+</body>
+</html>

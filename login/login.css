@@ -1,0 +1,251 @@
+/*==============================
+=   EcoCafé - CSS
+=   Page: Login (and Registration)
+=   File: login.css
+==============================*/
+
+/*======================================
+=   Header
+======================================*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-primary);
+}
+
+#container-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    padding-inline: clamp(0px, calc((100vw - 300px) / 10), 30px);
+}
+
+
+/* Top bar styles */
+#top-bar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: clamp(300px, 100%, 100%);
+}
+
+
+/* Logo styles */
+#logo-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--color-primary);
+}
+
+#logo-link img {
+    width: 40px;
+    height: auto;
+}
+
+#logo-text {
+    font-size: clamp(1rem, 5vw, 2rem);
+}
+
+
+
+/*==============================
+=   Main Section
+==============================*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-senary);
+}
+
+
+.container__login--register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: clamp(300px, 75vw, 500px);
+    margin-top: 50px;
+}
+
+.container__login--register h1 {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+
+
+/*==============================
+=   Login and Registration Form
+==============================*/
+
+.form__login--register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 50px 30px 30px;
+    border: 2px solid var(--color-septenary);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: var(--color-octonary);
+}
+
+.group__input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 22px 15px;
+    border: 1px solid var(--color-septenary);
+    border-bottom: 3px solid var(--color-secondary);
+    border-radius: 3px 3px 0 0;
+    margin-top: 5px;
+    font-size: 1rem;
+    letter-spacing: .05rem;
+    color: var(--color-secondary);
+    background: var(--color-octonary);
+}
+
+input::placeholder {
+    font-size: .8rem;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--color-septenary);
+}
+
+.error {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #f00;
+}
+
+
+/* Show password below */
+.show__password {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.85rem;
+}
+
+.show__login--register-password {
+    display: flex;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    accent-color: var(--color-quaternary);
+    cursor: pointer;
+    appearance: auto;
+}
+
+.show__login--register-password:focus,
+.show__login--register-password:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.show__password label {
+    display: flex;
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+}
+
+
+/* Visual message of the form (success or error) */
+.form__message {
+    display: none;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.form__message.success {
+    display: flex;
+    color: var(--color-secondary);
+    background-color: var(--color-nonary);
+}
+
+.form__message.error {
+    display: flex;
+    color: var(--color-denary);
+    background-color: var(--color-undenary);
+}
+
+
+/*--- Boton Sign In and Sign Up ---*/
+.btn__login--register {
+    width: 100%;
+    padding-block: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    box-shadow: 0 0 5px var(--color-quinary);
+    transition: background-color .4s ease;
+}
+
+.btn__login--register:hover {
+    background-color: var(--color-quaternary);
+}
+
+
+/* Link to register */
+#register-link {
+    margin: 20px 0 50px;
+}
+
+#register-link a {
+    border-bottom: 2px solid var(--color-quaternary);
+    font-weight: 600;
+    color: var(--color-quaternary);
+}

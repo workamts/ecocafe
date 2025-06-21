@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO -->
+    <title>EcoCafé - Checkout</title>
+    <meta name="description" content="Complete your purchase of EcoCafé's organic Colombian coffee. Secure payment and fast delivery from sustainable farmers." />
+    <meta name="keywords" content="checkout, organic coffee, Colombian coffee, EcoCafé, secure payment" />
+    <meta name="author" content="Anderson Tovar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tusitio.com/ecocafe/checkout/" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#382618" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/icons/logo-ecocafe.png" type="image/png" />
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="../css/layout-base.css" />
+    <link rel="stylesheet" href="checkout.css" />
+</head>
+<body role="document" aria-label="Checkout page">
+    <!-- Header -->
+    <header id="header" role="banner" aria-label="Main site header">
+        <a id="logo-link" href="../index.html" aria-label="EcoCafé home">
+            <img src="../assets/icons/logo-ecocafe.png" alt="EcoCafé Logo" width="64" height="64" loading="eager" decoding="async"/>
+            <span id="logo-text">EcoCafé</span>
+        </a>
+    </header>
+
+    <!-- Checkout Container -->
+    <main role="main" aria-labelledby="checkout-title">
+        <section id="checkout-container" aria-labelledby="contact-heading" role="region" aria-label="Checkout form and order summary">
+            <!-- Checkout form -->
+            <form id="checkout-form" aria-describedby="contact-heading" role="form" aria-label="Checkout form">
+                <!-- Contact information  -->
+                <fieldset aria-labelledby="contact-heading">
+                    <legend>Contact</legend>
+                    <!-- Full name inputs -->
+                    <div class="field__container">
+                        <input type="text" id="name" name="name" placeholder="Name" aria-label="First name" autocomplete="given-name" required />
+                    </div>
+                    <div class="field__container">
+                        <input type="text" id="last-names" name="last-names" placeholder="Last names" aria-label="Last names" autocomplete="family-name" required />
+                    </div>
+
+                    <!-- Document type and number -->
+                    <div id="id-doc-container" role="group" aria-labelledby="doc-type-label">
+                        <select id="doc-type" name="doc-type" aria-label="Document type" required>
+                            <option value="">Select Doc Type</option>
+                            <option value="cc">CC</option>
+                            <option value="ce">CE</option>
+                            <option value="nit">NIT</option>
+                            <option value="rut">RUT</option>
+                            <option value="passport">Passport</option>
+                        </select>
+                        <div class="field__container">
+                            <input type="text" id="document-number" name="document-number" placeholder="Document number" aria-label="Document number" inputmode="numeric" pattern="\d+" required />
+                        </div>
+                    </div>
+                    <!-- Email input -->
+                    <div class="field__container">
+                        <input type="email" id="email" name="email" placeholder="Email" aria-label="Email address" autocomplete="email" required />
+                    </div>
+                    <!-- Phone input (only numeric, max 15 digits) -->
+                    <div class="field__container">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" aria-label="Phone number" inputmode="numeric" pattern="\d*" maxlength="15" autocomplete="tel" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                    </div>
+                </fieldset>
+
+                <!-- Shipping Address -->
+                <fieldset aria-labelledby="shipping-address-heading">
+                    <legend>Shipping Address</legend>
+                    <div id="container-location">
+                        <!-- Country and city -->
+                        <div class="field__container">
+                            <input type="text" id="country" name="country" placeholder="Country/Region" aria-label="Country or Region" autocomplete="country-name" required />
+                        </div>
+                        <div class="field__container">
+                            <input type="text" id="city" name="city" placeholder="City" aria-label="City" required />
+                        </div>
+                    </div>
+                    <!-- Street address -->
+                    <div class="field__container">
+                        <input type="text" id="address" name="address" placeholder="Address" aria-label="Street address, building, apartment" autocomplete="street-address" required />
+                    </div>
+                    <!-- Postal code -->
+                    <div class="field__container">
+                        <input type="text" id="postal-code" name="postal-code" placeholder="Postal code" aria-label="Postal Code" inputmode="numeric" autocomplete="postal-code" required />
+                    </div>
+                    <!-- Save address checkbox -->
+                    <div id="container-box-save-address" role="checkbox" aria-checked="false" aria-label="Save address for future orders">
+                        <input type="checkbox" id="save-address" name="save-address"
+                            aria-label="Save this address for future orders"
+                            onchange="this.parentElement.setAttribute('aria-checked', this.checked)" />
+                        <label for="save-address">Save this address for future orders</label>
+                    </div>
+                </fieldset>
+
+                <!-- Shipping Method -->
+                <fieldset aria-labelledby="shipping-method-heading">
+                    <legend>Shipping Method</legend>
+                    <div id="shipping-method" role="radiogroup" aria-labelledby="shipping-method-heading">
+
+                        <!-- Standard Shipping -->
+                        <label class="shipping__option" role="radio" aria-checked="true" tabindex="0" aria-label="Standard Shipping, 3-5 business days, $5.000">
+                            <input type="radio" name="shipping" checked aria-label="Standard Shipping, 3-5 business days, $5.000"/>
+                            <div class="shipping__info">
+                                <div class="shipping__details">
+                                    <span>Standard Shipping</span>
+                                    <small>3-5 business days</small>
+                                </div>
+                                <span class="price">$5.000</span>
+                            </div>
+                        </label>
+
+                        <!-- Express Shipping -->
+                        <label class="shipping__option" role="radio" aria-checked="false" tabindex="0" aria-label="Express Shipping, 1-2 business days, $10.000">
+                            <input type="radio" name="shipping" aria-label="Express Shipping, 1-2 business days, $10.000" />
+                            <div class="shipping__info">
+                                <div class="shipping__details">
+                                    <span>Express Shipping</span>
+                                    <small>1-2 business days</small>
+                                </div>
+                                <span class="price">$10.000</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Payment method -->
+                <fieldset aria-labelledby="payment-methods-heading">
+                    <legend>Payment Method</legend>
+                    <p id="payment-method-text">All transactions are secure and encrypted.</p>
+                    <div id="payment-methods" role="radiogroup" aria-labelledby="payment-methods-heading">
+
+                        <!-- Mercado Pago -->
+                        <div class="payment__option" role="radio" aria-checked="false" aria-labelledby="label-mp" >
+                            <div class="payment__option--content">
+                                <!-- Payment method input for Mercado Pago -->
+                                <div class="payment__method--input-group">
+                                    <input class="payment__method--radio" type="radio" id="mp" name="payment" checked aria-label="Pay with Mercado Pago" />
+                                    <label class="payment__method--name" for="mp">Mercado Pago</label>
+                                </div>
+                                <!-- Icons for supported cards -->
+                                <div class="payment__method--icons" aria-label="Supported cards">
+                                    <img src="../assets/icons/pse-logo.png" alt="PSE">
+                                    <img src="../assets/icons/visa-logo.png" alt="Visa">
+                                    <img src="../assets/icons/mastercard-logo.png" alt="MasterCard">
+                                    <img src="../assets/icons/amex-logo.png" alt="American Express">
+                                    <img src="../assets/icons/mercadopago-logo.png" alt="Mercado Pago">
+                                </div>
+                            </div>
+
+                            <!-- Mercado Pago gateway fields -->
+                            <div class="payment__extra" aria-hidden="true" aria-label="Mercado Pago payment fields">
+                                <svg fill="currentColor" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <g transform="scale(-1,1) translate(-20,0)">
+                                        <path d="M10.28,10.89l.88-1.36a.33.33,0,0,0,0-.33.29.29,0,0,0-.29-.14c-1.75.14-3.1.27-3.1.27a.3.3,0,0,0-.23.13.32.32,0,0,0,0,.27l1,2.95a.29.29,0,0,0,.25.21h0a.29.29,0,0,0,.25-.14l.88-1.35L12,12.77a.37.37,0,0,0,.17.05.31.31,0,0,0,.26-.14.31.31,0,0,0-.09-.42Zm-1.38,1-.68-2,2.09-.18Z"/>
+                                        <path d="M15.69,4.31H4.31A1.61,1.61,0,0,0,2.7,5.92v8a1.61,1.61,0,0,0,1.61,1.61H15.69a1.61,1.61,0,0,0,1.61-1.61v-8A1.61,1.61,0,0,0,15.69,4.31ZM4.31,4.92H15.69a1,1,0,0,1,1,1v.72H3.31V5.92A1,1,0,0,1,4.31,4.92Zm11.38,10H4.31a1,1,0,0,1-1-1V7.25H16.69v6.67A1,1,0,0,1,15.69,14.92Z"/>
+                                        <path d="M4.31,6.18A.34.34,0,1,0,4,5.85.34.34,0,0,0,4.31,6.18Z"/>
+                                        <path d="M5.16,6.18a.34.34,0,0,0,0-.67.34.34,0,0,0,0,.67Z"/>
+                                        <path d="M6,6.18a.34.34,0,1,0-.33-.33A.34.34,0,0,0,6,6.18Z"/>
+                                    </g>
+                                </svg>
+
+                                <div class="payment__gateway" role="group" aria-labelledby="mp">
+                                    <!-- Card number -->
+                                    <div class="field__container">
+                                        <input type="text" id="card-number-mp"
+                                            maxlength="16"
+                                            inputmode="numeric" pattern="[0-9]{16}" autocomplete="cc-number"
+                                            placeholder="Card number" aria-label="Card number"
+                                            required />
+                                    </div>
+                                    <!-- Cardholder name -->
+                                    <div class="field__container">
+                                        <input type="text" id="card-name-mp"
+                                            maxlength="40"
+                                            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,40}" autocomplete="cc-name"
+                                            placeholder="Name on card" aria-label="Name on card"
+                                            required />
+                                    </div>
+                                    <!-- Expiration and CVV -->
+                                    <div class="card__exp--cvv">
+                                        <div class="field__container">
+                                            <input type="text" id="card-exp-mp"
+                                                maxlength="5"
+                                                pattern="^(0[1-9]|1[0-2])\/\d{2}$" autocomplete="cc-exp"
+                                                placeholder="MM/YY" aria-label="Card expiration date" required />
+                                        </div>
+                                        <div class="field__container">
+                                            <input type="text" id="card-cvv-mp"
+                                                maxlength="4"
+                                                inputmode="numeric" pattern="[0-9]{3,4}" autocomplete="cc-csc"
+                                                placeholder="CVV"
+                                                aria-label="Card CVV"
+                                                required />
+                                        </div>
+                                    </div>
+
+                                    <!-- Area for error messages -->
+                                    <div class="payment__error" role="alert" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sistecredito -->
+                        <div class="payment__option" role="radio" aria-checked="false" aria-labelledby="label-sc">
+                            <div class="payment__option--content">
+                                <!-- Payment method input for Sistecredito -->
+                                <div class="payment__method--input-group">
+                                    <input class="payment__method--radio" type="radio" id="sc" name="payment" aria-label="Pay with Sistecredito" />
+                                    <label class="payment__method--name" for="sc">Sistecredito</label>
+                                </div>
+                                <!-- Icons for supported cards -->
+                                <div class="payment__method--icons" role="img" aria-label="Sistecredito accepted">
+                                    <img src="../assets/icons/sistecredito-logo.png" alt="Sistecredito logo">
+                                </div>
+                            </div>
+
+                            <!-- Sistecredito gateway fields -->
+                            <div class="payment__extra" aria-hidden="true" aria-label="Sistecredito payment fields">
+                                <svg fill="currentColor" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <g transform="scale(-1,1) translate(-20,0)">
+                                        <path d="M10.28,10.89l.88-1.36a.33.33,0,0,0,0-.33.29.29,0,0,0-.29-.14c-1.75.14-3.1.27-3.1.27a.3.3,0,0,0-.23.13.32.32,0,0,0,0,.27l1,2.95a.29.29,0,0,0,.25.21h0a.29.29,0,0,0,.25-.14l.88-1.35L12,12.77a.37.37,0,0,0,.17.05.31.31,0,0,0,.26-.14.31.31,0,0,0-.09-.42Zm-1.38,1-.68-2,2.09-.18Z"/>
+                                        <path d="M15.69,4.31H4.31A1.61,1.61,0,0,0,2.7,5.92v8a1.61,1.61,0,0,0,1.61,1.61H15.69a1.61,1.61,0,0,0,1.61-1.61v-8A1.61,1.61,0,0,0,15.69,4.31ZM4.31,4.92H15.69a1,1,0,0,1,1,1v.72H3.31V5.92A1,1,0,0,1,4.31,4.92Zm11.38,10H4.31a1,1,0,0,1-1-1V7.25H16.69v6.67A1,1,0,0,1,15.69,14.92Z"/>
+                                        <path d="M4.31,6.18A.34.34,0,1,0,4,5.85.34.34,0,0,0,4.31,6.18Z"/>
+                                        <path d="M5.16,6.18a.34.34,0,0,0,0-.67.34.34,0,0,0,0,.67Z"/>
+                                        <path d="M6,6.18a.34.34,0,1,0-.33-.33A.34.34,0,0,0,6,6.18Z"/>
+                                    </g>
+                                </svg>
+
+                                <!-- Sistecredito Payment Gateway -->
+                                <div class="payment__gateway" role="group" aria-labelledby="sc-payment-details">
+                                    <!-- Card Number -->
+                                    <div class="field__container">
+                                        <input type="text" id="card-number-sc"
+                                            name="card-number-sc"
+                                            maxlength="16"
+                                            inputmode="numeric"
+                                            pattern="[0-9]{16}" autocomplete="cc-number" placeholder="Card Number"
+                                            aria-label="Card number"
+                                            required />
+                                    </div>
+                                    <!-- Cardholder Name -->
+                                    <div class="field__container">
+                                        <input type="text" id="card-name-sc"
+                                            name="card-name-sc"
+                                            maxlength="40"
+                                            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,40}" autocomplete="cc-name" placeholder="Name on card"
+                                            aria-label="Name on card"
+                                            required />
+                                    </div>
+                                    <!-- Expiry and CVV -->
+                                    <div class="card__exp--cvv">
+                                        <div class="field__container">
+                                            <input type="text" id="card-exp-sc"
+                                                name="card-exp-sc"
+                                                maxlength="5"
+                                                pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+                                                placeholder="MM/YY"
+                                                autocomplete="cc-exp"
+                                                aria-label="Card expiration date"
+                                                required />
+                                        </div>
+                                        <div class="field__container">
+                                            <input type="text" id="card-cvv-sc"
+                                                name="card-cvv-sc"
+                                                maxlength="4"
+                                                inputmode="numeric"
+                                                pattern="[0-9]{3,4}"
+                                                autocomplete="cc-csc"
+                                                placeholder="CVV"
+                                                aria-label="Card security code (CVV)"
+                                                required />
+                                        </div>
+                                    </div>
+                                    <!-- Area for validation or error messages -->
+                                    <div class="payment__error" role="alert" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PSE -->
+                        <div class="payment__option" role="radio" aria-checked="false" aria-labelledby="label-pse">
+                            <div class="payment__option--content">
+                                <!-- Payment method input for Sistecredito -->
+                                <div class="payment__method--input-group">
+                                    <input class="payment__method--radio" type="radio" id="pse" name="payment" aria-label="Pay with PSE" />
+                                    <label class="payment__method--name" for="pse">Paga a Credito o Debito con PSE</label>
+                                </div>
+                                <!-- Icons for supported cards -->
+                                <div class="payment__method--icons" role="img" aria-label="Addi and PSE supported">
+                                    <img src="../assets/icons/addi-logo.svg" alt="Addi logo">
+                                    <img src="../assets/icons/pse-logo.png" alt="PSE logo">
+                                </div>
+                            </div>
+
+                            <!-- PSE gateway fields -->
+                            <div class="payment__extra" aria-hidden="true" aria-label="PSE payment fields">
+                                <!-- Toggle icon -->
+                                <svg fill="currentColor" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <g transform="scale(-1,1) translate(-20,0)">
+                                        <path d="M10.28,10.89l.88-1.36a.33.33,0,0,0,0-.33.29.29,0,0,0-.29-.14c-1.75.14-3.1.27-3.1.27a.3.3,0,0,0-.23.13.32.32,0,0,0,0,.27l1,2.95a.29.29,0,0,0,.25.21h0a.29.29,0,0,0,.25-.14l.88-1.35L12,12.77a.37.37,0,0,0,.17.05.31.31,0,0,0,.26-.14.31.31,0,0,0-.09-.42Zm-1.38,1-.68-2,2.09-.18Z"/>
+                                        <path d="M15.69,4.31H4.31A1.61,1.61,0,0,0,2.7,5.92v8a1.61,1.61,0,0,0,1.61,1.61H15.69a1.61,1.61,0,0,0,1.61-1.61v-8A1.61,1.61,0,0,0,15.69,4.31ZM4.31,4.92H15.69a1,1,0,0,1,1,1v.72H3.31V5.92A1,1,0,0,1,4.31,4.92Zm11.38,10H4.31a1,1,0,0,1-1-1V7.25H16.69v6.67A1,1,0,0,1,15.69,14.92Z"/>
+                                        <path d="M4.31,6.18A.34.34,0,1,0,4,5.85.34.34,0,0,0,4.31,6.18Z"/>
+                                        <path d="M5.16,6.18a.34.34,0,0,0,0-.67.34.34,0,0,0,0,.67Z"/>
+                                        <path d="M6,6.18a.34.34,0,1,0-.33-.33A.34.34,0,0,0,6,6.18Z"/>
+                                    </g>
+                                </svg>
+
+                                <!-- PSE Gateway -->
+                                <div class="payment__gateway" role="group" aria-labelledby="pse-payment-details">
+                                    <span id="pse-payment-details" class="sr-only">Select your bank for PSE payment</span>
+
+                                    <!-- Bank selection -->
+                                    <div class="field__container">
+                                        <select id="pse-bank" name="pse-bank" aria-label="Bank selection for PSE" required>
+                                            <option value="">Select a bank</option>
+                                            <option value="bancolombia">Bancolombia</option>
+                                            <option value="davivienda">Davivienda</option>
+                                            <option value="bbva">BBVA</option>
+                                            <option value="banco-de-bogota">Banco de Bogotá</option>
+                                        </select>
+                                    </div>
+                                    <!-- Error message -->
+                                    <div class="payment__error" role="alert" aria-live="polite"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cash on Delivery Option -->
+                        <div class="payment__option" role="radio" aria-checked="false" aria-labelledby="label-pce">
+                            <div class="payment__option--content">
+                                <!-- Payment method input for Sistecredito -->
+                                <div class="payment__method--input-group">
+                                    <input class="payment__method--radio" type="radio" id="pce" name="payment" aria-label="Cash on delivery" />
+                                    <label class="payment__method--name" for="pce">Cash on Delivery</label>
+                                </div>
+                            </div>
+
+                            <!-- Cash on Delivery access fields -->
+                            <div class="payment__extra" aria-hidden="true" role="region" aria-labelledby="pce-instructions" aria-label="Cash on delivery instructions">
+                                <!-- Pasarela Contra Entrega -->
+                                <p id="pce-instructions">Confirm your address and phone number for cash on delivery.</p>
+                                <ul>
+                                    <li>You must not open the package before paying.</li>
+                                    <li>Have the exact amount of cash ready when receiving the delivery.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <!-- Order Summary Section -->
+            <section id="order-summary" aria-labelledby="order-summary-title" role="region" aria-label="Order summary">
+                    <div id="order-summary-container">
+                        <h1 id="order-summary-title">Order Summary</h1>
+
+                        <!-- Product List -->
+                        <div id="order-summary-products" role="list" aria-label="Product list">
+                            <!-- Single product item -->
+                            <article class="item" style="display: none;" role="listitem" aria-label="Product item">
+                                <div class="item__img--container">
+                                    <img src="" alt="Product image" />
+                                    <span class="item__quantity" aria-label="Quantity"></span>
+                                </div>
+                                <div class="item__details">
+                                    <p class="product__name" aria-label="Product name"></p>
+                                    <!-- Product attribute list -->
+                                    <div class="product__attribute">
+                                        <span class="product__label" aria-label="Attribute name"></span>
+                                        <span class="product__value" aria-label="Attribute value"></span>
+                                    </div>
+                                    <div class="product__attribute">
+                                        <span class="product__label" aria-label="Attribute name"></span>
+                                        <span class="product__value" aria-label="Attribute value"></span>
+                                    </div>
+                                    <span class="product__total" aria-label="Total price for product"></span>
+                                </div>
+
+                                <!-- Remove product button -->
+                                <button class="remove__item" type="button" aria-label="Remove this item from the cart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" version="1.1">
+                                        <path d="M52 16H12a1.999 1.999 0 1 1 0-4h40a1.999 1.999 0 1 1 0 4m-2 40c0 2.207-1.793 4-4 4H18c-2.207 0-4-1.793-4-4V20h36ZM26 6c0-1.105.895-2 2-2h8c1.105 0 2 .895 2 2v2H26Zm28 2H42V4c0-2.207-1.793-4-4-4H26c-2.207 0-4 1.793-4 4v4H10c-2.207 0-4 1.793-4 4v4c0 2.207 1.793 4 4 4v36a8 8 0 0 0 8 8h28a8 8 0 0 0 8-8V20c2.207 0 4-1.793 4-4v-4c0-2.207-1.793-4-4-4M32 56c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m-10 0c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m20 0c1.105 0 2-.895 2-2V30a1.999 1.999 0 1 0-4 0v24c0 1.105.895 2 2 2m0 0" style="stroke:none;fill-rule:evenodd;fill: currentColor;fill-opacity:1"/>
+                                    </svg>
+                                </button>
+                            </article>
+                        </div>
+
+                        <!-- Discount Code Field -->
+                        <div id="discount-form" role="form" aria-labelledby="discount-label" aria-label="Discount code form">
+                            <input type="text" id="discount-code" name="discount-code" placeholder="Discount code" aria-describedby="discount-message" />
+                            <div id="discount-message" role="alert" aria-live="polite"></div>
+                            <button type="button" aria-label="Apply discount code">Apply</button>
+                        </div>
+
+                        <!-- Order Summary Section -->
+                        <div id="summary-total" role="region" aria-labelledby="summary-heading" aria-label="Order totals">
+                            <p>
+                                <strong>Subtotal:</strong> <span aria-label="Subtotal amount" aria-live="polite"></span>
+                            </p>
+                            <p>
+                                <strong>Shipping:</strong> <span aria-label="Shipping cost" aria-live="polite"></span>
+                            </p>
+                            <p id="total-order-price">
+                                <strong>Total:</strong> <span aria-label="Total order amount" aria-live="polite"></span>
+                            </p>
+                        </div>
+
+                        <!-- Payment Button -->
+                        <button type="submit" id="pay-now" role="button" aria-label="Pay now to complete your purchase">Pay Now</button>
+                    </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" aria-label="Checkout Footer">
+        <nav id="footer-navigation" role="navigation" aria-label="Legal and Support Navigation">
+            <ul id="footer-links" role="list" aria-label="Footer Links">
+                <li class="footer__link--items" role="listitem">
+                    <a id="terms-conditions" href="#" role="link"
+                    aria-label="View the terms and conditions for EcoCafé purchases"
+                    rel="noopener noreferrer">Terms and Conditions</a>
+                </li>
+                <li class="footer__link--items" role="listitem">
+                    <a href="#" role="link"
+                    aria-label="Read EcoCafé's privacy policy"
+                    rel="noopener noreferrer">Privacy Policy</a>
+                </li>
+                <li class="footer__link--items" role="listitem">
+                    <a href="#" role="link"
+                    aria-label="Read EcoCafé's refund policy"
+                    rel="noopener noreferrer">Refund Policy</a>
+                </li>
+                <li class="footer__link--items" role="listitem">
+                    <a href="#" role="link"
+                    aria-label="Visit the help center or contact support"
+                    rel="noopener noreferrer">Help Center</a>
+                </li>
+            </ul>
+        </nav>
+        <p role="note" aria-label="Copyright Notice">
+            &copy; 2025 EcoCafé. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Successful Payment Method -->
+    <div id="modal-backdrop" class="modal-backdrop" style="display:none;" aria-hidden="true"></div>
+    <div id="modal-success" class="modal-success" role="dialog" aria-modal="true" tabindex="-1" style="display:none;" aria-labelledby="modal-success-title">
+        <div class="success__message">
+            <h2>¡Pago realizado con éxito!</h2>
+            <p>Gracias por tu compra en <strong>EcoCafé</strong>.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="checkout.js" defer></script>
+</body>
+</html>
