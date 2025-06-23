@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Coffee Beans",
+        "origin": "Colombia",
+        "shortdesc": "Ground coffee is a highly versatile, accessible, and quick-to-prepare option, ideal for daily consumption both at home and in work environments. This coffee is already roasted and ground, ready to use with various methods such as French press, drip, or espresso, eliminating the need for additional equipment. Although its shelf life is shorter than whole bean coffee, modern packaging techniques preserve much of its flavor and aroma. It is a balanced choice between practicality, quality, and taste, perfect for those who want a good cup without complications.",
+        "description": [
+            "Ground coffee is one of the most practical and widely distributed presentations on the market. Its main advantage is that it has already been roasted and ground to different grind levels, making it compatible with a wide variety of brewing methods. It is designed to facilitate daily consumption, as it requires no grinder or prior technical knowledge, and can be easily found in supermarkets, specialty stores, and coffee shops.",
+            "Many brands offer ground coffee with various flavor profiles: from light and smooth roasts to intense and dark ones. There are also flavored versions of ground coffee with added notes of vanilla, cinnamon, caramel, or cocoa, offering a unique and novel experience. Additionally, it is common to find single-origin ground coffee options, where each bag comes from a specific farm or region, resulting in a distinctive and recognizable flavor.",
+            "The preservation of ground coffee has improved significantly thanks to vacuum packaging or one-way valves that allow CO₂ to escape without letting in oxygen, helping to maintain freshness for longer. Despite its flavor degrading faster than whole bean coffee, it is an excellent option for those who value convenience, variety, and quick preparation without fully compromising the quality of the cup."
+        ],
+        "pricePerKg": 35000,
+        "pricePerG": 35,
+        "stock": 1500,
+        "images": [
+            "assets/images/coffee-beans-main-view.jpg",
+            "assets/images/coffee-beans-view-2.jpg",
+            "assets/images/coffee-beans-view-3.jpg",
+            "assets/images/coffee-beans-view-4.jpg",
+            "assets/images/coffee-beans-view-5.jpg"
+        ],
+        "benefits": [
+            "Preserves aroma and natural oils",
+            "Greater freshness and shelf life",
+            "Full control over grind and method",
+            "High in antioxidants",
+            "Better cup quality"
+        ],
+        "additional": [
+            { "label": "Requires grinder", "value": "Necessary to grind the beans at the moment" },
+            { "label": "Ideal for coffee enthusiasts", "value": "Perfect for those who value artisanal quality" },
+            { "label": "Allows custom blends", "value": "Possibility to mix different origins" },
+            { "label": "Longer shelf life than ground coffee", "value": "Keeps aroma longer when stored properly" }
+        ]
+    },
+    {
+        "name": "Ground Coffee",
+        "origin": "Colombia",
+        "shortdesc": "Ground coffee is a highly versatile, accessible, and quick-to-prepare option, ideal for daily consumption both at home and in work environments. This coffee is already roasted and ground, ready to use with various methods such as French press, drip, or espresso, eliminating the need for additional equipment. Although its shelf life is shorter than whole bean coffee, modern packaging techniques preserve much of its flavor and aroma. It is a balanced choice between practicality, quality, and taste, perfect for those who want a good cup without complications.",
+        "description": [
+            "Ground coffee is one of the most practical and widely distributed presentations on the market. Its main advantage is that it has already been roasted and ground to different grind levels, making it compatible with a wide variety of brewing methods. It is designed to facilitate daily consumption, as it requires no grinder or prior technical knowledge, and can be easily found in supermarkets, specialty stores, and coffee shops.",
+            "Many brands offer ground coffee with various flavor profiles: from light and smooth roasts to intense and dark ones. There are also flavored versions of ground coffee with added notes of vanilla, cinnamon, caramel, or cocoa, offering a unique and novel experience. Additionally, it is common to find single-origin ground coffee options, where each bag comes from a specific farm or region, resulting in a distinctive and recognizable flavor.",
+            "The preservation of ground coffee has improved significantly thanks to vacuum packaging or one-way valves that allow CO₂ to escape without letting in oxygen, helping to maintain freshness for longer. Despite its flavor degrading faster than whole bean coffee, it is an excellent option for those who value convenience, variety, and quick preparation without fully compromising the quality of the cup."
+        ],
+        "pricePerKg": 38000,
+        "pricePerG": 38,
+        "stock": 1500,
+        "images": [
+            "assets/images/ground-coffee-main-view.png",
+            "assets/images/ground-coffee-view-2.jpg",
+            "assets/images/ground-coffee-view-3.jpg",
+            "assets/images/ground-coffee-view-4.jpeg",
+            "assets/images/ground-coffee-view-5.jpg"
+        ],
+        "benefits": [
+            "Practical and quick to prepare",
+            "No grinder required",
+            "Ideal for homes and offices",
+            "Compatible with multiple methods",
+            "Retains good flavor if properly stored"
+        ],
+        "additional": [
+            { "label": "Grind variety", "value": "Available in coarse, medium, and fine grinds" },
+            { "label": "Vacuum sealed", "value": "Improves preservation of aroma and freshness" },
+            { "label": "Wide range of flavors", "value": "Includes origin, blends, and flavored options" },
+            { "label": "Valve packaging", "value": "Allows gas release without air entry" }
+        ]
+    },
+    {
+        "name": "Coffee Capsules",
+        "origin": "Colombia",
+        "shortdesc": "Capsule coffee combines convenience, speed, and consistency in every cup, becoming an ideal solution for modern lifestyles. Each capsule contains a perfectly measured dose of ground coffee vacuum-sealed to ensure freshness and uniform flavor. With just one button, you can enjoy a high-quality cup of coffee without technical knowledge or cleanup. It's perfect for homes and offices looking for convenience without sacrificing flavor, and it offers a wide variety of flavors, intensities, and origins in each capsule.",
+        "description": [
+            "Capsule coffee has completely transformed the way coffee is consumed in recent years. Each capsule contains a precise amount of roasted and ground coffee, sealed under conditions that ensure freshness, hygiene, and consistent flavor. This allows anyone, regardless of experience, to prepare an excellent cup of coffee by simply pressing a button on a compatible machine, without worrying about grinding, ratios, or temperature.",
+            "This format offers an enormous variety of options: from smooth blends to strong coffees, decaf, exotic flavors, infused with milk, chocolate, or even spices. There are single-origin capsules, gourmet blends, and sustainable or compostable options. Many brands even design their capsules to maximize extraction pressure, simulating professional espresso. This diversity makes capsule coffee not only convenient but also exciting for the palate.",
+            "It is especially useful in contexts where speed, cleanliness, and consistency are key: offices, busy households, or people who want to enjoy good coffee without investing time. Although its cost per gram is higher, its convenience and results make it an excellent choice for those looking for a balance between quality and practicality without sacrificing sensory experience."
+        ],
+        "pricePerKg": 300000,
+        "pricePerG": 300,
+        "stock": 1500,
+        "images": [
+            "assets/images/coffee-capsules-main-view.jpeg",
+            "assets/images/coffee-capsules-view-2.jpeg",
+            "assets/images/coffee-capsules-view-3.jpeg",
+            "assets/images/coffee-capsules-view-4.jpeg",
+            "assets/images/coffee-capsules-view-5.jpeg"
+        ],
+        "benefits": [
+            "Fast and effortless",
+            "Consistent and quality cup",
+            "Wide variety of flavors and intensities",
+            "No equipment cleaning required",
+            "Great for beginners"
+        ],
+        "additional": [
+            { "label": "Requires compatible machine", "value": "Only works with specific machines" },
+            { "label": "Gourmet variety available", "value": "Capsules with milk, chocolate, or special flavors" },
+            { "label": "Sustainable options", "value": "Recyclable or compostable capsules depending on brand" },
+            { "label": "Hygienic packaging", "value": "Prevents direct contact and cross-contamination" }
+        ]
+    },
+    {
+        "name": "Green Coffee (unroasted)",
+        "origin": "Colombia",
+        "shortdesc": "Green coffee is the coffee bean in its most natural state, before the roasting process, and has become popular for its health benefits and high antioxidant content. Rich in chlorogenic acid, this type of coffee is widely used in infusions and supplements that promote weight loss, sugar control, and metabolic improvement. Although it does not have the traditional flavor of roasted coffee, it is valued by those seeking natural and functional alternatives, especially within healthy, vegan, or detox lifestyles.",
+        "description": [
+            "Green coffee refers to raw coffee beans that have not undergone the roasting process, allowing them to retain many of their natural compounds intact, such as chlorogenic acid. This antioxidant has been extensively studied for its beneficial effect on metabolism, blood sugar regulation, and lowering blood pressure. That is why green coffee is widely used as a base for dietary supplements and natural treatments.",
+            "Although it is not traditionally used in coffee machines, it can be consumed as an infusion or even home-roasted. The taste of green coffee is more herbal, earthy, and slightly bitter—very different from conventional coffee—which makes its consumption more focused on functional benefits rather than sensory pleasure. There are also capsules and concentrated extracts made from green coffee for those who want its benefits without preparing the infusion directly.",
+            "This type of coffee has gained popularity among people interested in physical wellness, weight control, metabolic health, or natural medicine. It has also become attractive to those who want to experiment with raw ingredients and customized home roasting techniques. Although it does not replace roasted coffee in terms of taste, it provides a unique nutritional and functional value within the world of coffee."
+        ],
+        "pricePerKg": 25000,
+        "pricePerG": 25,
+        "stock": 1500,
+        "images": [
+            "assets/images/green-coffee-main-view.jpeg",
+            "assets/images/green-coffee-view-2.jpeg",
+            "assets/images/green-coffee-view-3.jpeg",
+            "assets/images/green-coffee-view-4.jpeg",
+            "assets/images/green-coffee-view-5.jpeg"
+        ],
+        "benefits": [
+            "High in antioxidants",
+            "Helps regulate blood sugar",
+            "Supports weight loss",
+            "Improves metabolism and circulation",
+            "Anti-inflammatory properties"
+        ],
+        "additional": [
+            { "label": "Used in supplements", "value": "Popular as capsules in natural diets" },
+            { "label": "Unroasted", "value": "Must be roasted before making conventional coffee" },
+            { "label": "More herbal taste", "value": "Different from traditional roasted coffee" },
+            { "label": "Infusion-friendly", "value": "Can also be boiled without roasting" }
+        ]
+    }
+]

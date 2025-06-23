@@ -244,55 +244,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const isUserLoggedIn = () => !!localStorage.getItem('loggedInUser');
     if (!localStorage.getItem('userBalance')) localStorage.setItem('userBalance', '500000');
 
-    // Initial products or since localStorage
-    const defaultProducts = {
-        "Coffee beans": {
-            origin: "Colombia",
-            shortdesc: "100% Colombian coffee beans, organically grown on mountain farms, carefully selected to ensure exceptional quality. Its intense and enveloping aroma is combined with a flavor profile that highlights notes of cocoa, nuts, and a delicate floral touch. Hand-roasted in small batches to preserve its freshness, flavor, and natural character. Ideal for those seeking an authentic experience rich in nuances in every cup.",
-            description: [
-                `Discover the authentic flavor of Colombia with EcoCafé's 100% Colombian whole bean coffee. Organically grown on sustainable high-mountain farms, this coffee stands out for its superior quality, enveloping aroma, and balanced flavor profile with notes of cocoa, dried fruits, and a floral touch.`,
-                `Hand-roasted in small batches to preserve its natural properties, each bean reflects EcoCafé's commitment to the environment, the coffee-growing community, and the true pleasure of coffee. Ideal for those who enjoy freshly ground coffee and savoring a cup with character, medium body, and bright acidity.`,
-                `Perfect for French press, espresso, or filter coffee.`
-            ],
-            pricePerKg: 70000,
-            pricePerG: 70,
-            stockKg: 1000,
-            images: [
-                "../assets/images/coffee-beans-main-view.jpg",
-                "../assets/images/coffee-beans-view-2.jpg",
-                "../assets/images/coffee-beans-view-3.jpg",
-                "../assets/images/coffee-beans-view-4.jpg",
-                "../assets/images/coffee-beans-view-5.jpg"
-            ],
-            benefits: ["100% natural", "Free shipping from 2kg"],
-            additional: [
-                { label: "Altitude", value: "1,800 m s.n.m" },
-                { label: "Varietal", value: "Caturra" }
-            ]
-        },
-        "Ground coffee": {
-            origin: "Colombia",
-            shortdesc: "Freshly ground coffee.",
-            description: "Ground coffee for coffee maker or French press.",
-            pricePerKg: 62000,
-            pricePerG: 62,
-            stockKg: 500,
-            images: [
-                "../assets/images/ground-coffee-main-view.png",
-                "../assets/images/ground-coffee-view-2.jpg",
-                "../assets/images/ground-coffee-view-3.jpg",
-                "../assets/images/ground-coffee-view-4.jpeg",
-                "../assets/images/ground-coffee-view-5.jpg"
-            ],
-            benefits: ["Easy to prepare", "Biodegradable packaging"],
-            additional: [
-                { label: "Altitude", value: "1,600 m s.n.m" },
-                { label: "Varietal", value: "Castillo" }
-            ]
-        }
-    };
-    window.defaultProducts = defaultProducts;
-    productsData = JSON.parse(localStorage.getItem('productsData')) || defaultProducts;
+    fetch('../products-coffee.json')
+        .then(res => res.json())
+        .then(data => {
+            // Convertir array a objeto usando 'name' como clave
+            const productMap = {};
+            data.forEach(product => {
+            productMap[product.name] = {
+                origin: product.origin,
+                shortdesc: product.shortdesc,
+                description: product.description,
+                pricePerKg: product.precio_kg_cop,
+                pricePerG: product.precio_g_cop,
+                stockKg: 20, // Puedes ajustar el stock inicial
+                images: product.images || [],
+                benefits: product.benefits || [],
+                additional: product.additional || []
+            };
+            });
+
+            // Si no hay datos guardados, usar este JSON y guardarlo en localStorage
+            if (!localStorage.getItem('productsData')) {
+            localStorage.setItem('productsData', JSON.stringify(productMap));
+            }
+
+            // Asignar productos desde localStorage o fallback
+            window.defaultProducts = productMap;
+            productsData = JSON.parse(localStorage.getItem('productsData')) || productMap;
+
+            renderProducts();
+            addProductListeners();
+            renderCart();
+        })
+        .catch(err => {
+            console.error('Error loading coffee products:', err);
+        });
 
     // --- Items DOM ---
     cartToggle = document.getElementById('cart-container');

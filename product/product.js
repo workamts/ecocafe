@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productComments.forEach(c => {
             const article = document.createElement('article');
             article.className = 'comments__article';
-            article.innerHTML = 
+            article.innerHTML =
                 `<span>${c.name}</span>
                 <strong>${'⭐️'.repeat(c.rating)}</strong>
                 <p>“${c.text}”</p>`;
@@ -369,13 +369,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const sugLeftBtn = document.querySelector('.arrow.left');
         const sugRightBtn = document.querySelector('.arrow.right');
-        if (sugLeftBtn) sugLeftBtn.addEventListener('click', () => { 
+        if (sugLeftBtn) sugLeftBtn.addEventListener('click', () => {
             if (sugLeftBtn.disabled) return;
-            sugIndex--; updateSuggestions(); 
+            sugIndex--; updateSuggestions();
         });
-        if (sugRightBtn) sugRightBtn.addEventListener('click', () => { 
+        if (sugRightBtn) sugRightBtn.addEventListener('click', () => {
             if (sugRightBtn.disabled) return;
-            sugIndex++; updateSuggestions(); 
+            sugIndex++; updateSuggestions();
         });
         window.addEventListener('resize', updateSuggestions);
         setTimeout(updateSuggestions, 200);
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
-        
+
         if (incrementBtn && input) incrementBtn.addEventListener('click', () => {
             let current = parseInt(input.value) || 0;
             if (current < 1000) input.value = current + 1;
