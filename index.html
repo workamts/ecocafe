@@ -148,12 +148,12 @@
             <div id="container-hero-content">
                 <h1>Artisanal organic coffee</h1>
                 <p>Direct from small Colombian producers to your cup.</p>
-                <a id="hero-button" href="#products" role="button">See products</a>
+                <a id="hero-button" href="#contact-form" role="button">Contact us</a>
             </div>
         </section>
 
         <!-- Products Section -->
-        <section id="products" class="scroll__reveal" aria-labelledby="products-title">
+        <section id="products" aria-labelledby="products-title">
             <!-- Ribbon -->
             <div class="ribbon__container">
                 <div class="ribbon__track">
@@ -274,7 +274,7 @@
             </form>
 
             <!-- Card container used to add products -->
-            <div id="products-container" class="products__grid" aria-live="polite"></div>
+            <div id="products-container" class="products__grid fade__bottom" aria-live="polite"></div>
             <!-- structure that the products added with js will have -->
             <template id="product-card-template">
                 <div class="product__card">
@@ -303,21 +303,43 @@
         </section>
 
         <!-- About Section -->
-        <section id="about-us" class="scroll__reveal" aria-labelledby="about-title">
-            <img src="assets/images/representative-image-coffee.jpg" width="360" height="540" alt="image about ecocafe" loading="lazy" decoding="async">
-            <div id="container-about-us">
-                <h2>About EcoCafé</h2>
-                    <p>
-                        At <strong>EcoCafé</strong>, we believe that good coffee not only awakens your senses but also cares for the planet and those who grow it. We are a brand committed to artisanal and organic coffee production, working directly with coffee-growing communities that practice sustainable and ethical methods.
-                    </p>
-                    <p>
-                        Each EcoCafé bean is grown without chemicals, in rich soils protected by native forests, ensuring an authentic, deep, and nuanced flavor. We strive to preserve biodiversity, support fair trade, and offer a healthy, natural, and high-quality product.
-                    </p>
+        <section id="about-us" aria-labelledby="about-title" role="region">
+            <img id="about-us-image" class="fade__right" src="assets/images/representative-image-coffee.jpg" alt="Granos de café representativos de EcoCafé">
+
+            <div id="group-about-us" class="fade__left" role="group" aria-label="About EcoCafé">
+                <article id="container-about-us" role="group" aria-labelledby="about-title">
+                    <h2 id="about-title">About EcoCafé</h2>
+                    <p>An <strong>EcoCafé</strong>, we believe that good coffee not only awakens the senses, but also cares for the planet and those who grow it.</p>
+                    <p>We are a brand committed to producing artisanal and organic coffee, working directly with coffee-growing communities that practice sustainable, regenerative, and ethical methods.</p>
+                    <p>Each EcoCafé bean is grown without chemicals, in rich soils protected by native forests, ensuring an authentic, deep flavor full of natural nuances.</p>
+                </article>
+
+                <div id="about-values" role="list" aria-labelledby="about-values-title">
+                    <span id="about-values-title">We strive to:</span>
+                    <ul id="about-values-list" class="fade__bottom">
+                        <li>
+                            <img src="assets/icons/sustainability.png" alt="Ícono de sostenibilidad">
+                            <span>Sustainability</span>
+                        </li>
+                        <li>
+                            <img src="assets/icons/fair-trade.png" alt="Ícono de comercio justo">
+                            <span>Fair Trade</span>
+                        </li>
+                        <li>
+                            <img src="assets/icons/artisan-quality.png" alt="Ícono de calidad artesanal">
+                            <span>Artisan Quality</span>
+                        </li>
+                        <li>
+                            <img src="assets/icons/social-responsibility.png" alt="Ícono de responsabilidad social">
+                            <span>Social Responsibility</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <form id="contact-form" class="scroll__reveal" novalidate aria-labelledby="contact-form-title" autocomplete="off">
+        <form id="contact-form" class="fade__bottom" novalidate aria-labelledby="contact-form-title" autocomplete="off">
             <fieldset>
                 <legend id="contact-form-title">Contact us</legend>
 
@@ -444,7 +466,7 @@
                             <path style=" stroke:none;fill-rule:evenodd;fill: currentColor;" d="M 10 14 L 8 16 L 8 48 L 10 50 L 54 50 L 56 48 L 56 16 L 54 14 Z M 12 20.523438 L 12 46 L 52 46 L 52 20.519531 L 32 38.703125 Z M 48.828125 18 L 15.171875 18 L 32 33.296875 Z M 48.828125 18 "/>
                         </g>
                     </svg>
-                    <p><a href="mailto:info@ecocafe.com">info@ecocafe.com</a></p>
+                    <p><a href="mailto:info@ecocafe.com">ecocafe@gmail.com</a></p>
                 </li>
 
                 <li class="footer__list--item">
@@ -511,7 +533,7 @@
                 </div>
             </div>
         </div>
-        <p>&copy; 2025 EcoCafé. All rights reserved.</p>
+        <p>&copy; 2025 EcoCafé. All rights reserved. Developed by Anderson Tovar - Workamts.</p>
     </footer>
 
     <!-- Scripts -->

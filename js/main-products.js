@@ -48,8 +48,9 @@ function updateCartCount() {
 }
 
 function updateCartTotal() {
+    // Use item.pricekg to calculate the cart total
     const total = Object.values(cart).reduce(
-        (acc, item) => acc + item.quantity * item.kgPerUnit * item.pricePerKg,
+        (acc, item) => acc + item.quantity * item.kgPerUnit * item.pricekg,
         0
     );
     if (cartFooterTotal) cartFooterTotal.textContent = `$${total.toLocaleString('es-CO')},00`;
@@ -68,18 +69,23 @@ function renderCart() {
     const template = document.getElementById('cart-item-template');
     Object.entries(cart).forEach(([key, item]) => {
         const clone = template.content.cloneNode(true);
-        // Rellenar datos
+        //Fill data
         const img = clone.querySelector('.cart__img');
-        img.src = item.image;
-        img.alt = `Imagen del producto ${item.productName}`;
+        let imgPath = item.image;
+        if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
+            imgPath = '../' + imgPath;
+        }
+        img.src = imgPath;
+        img.alt = `Product Image ${item.productName}`;
 
         clone.querySelector('.cart__product--name').textContent = item.productName;
         clone.querySelector('.cart__kg').textContent = `${item.kgPerUnit} kg`;
         clone.querySelector('.cart__qty').textContent = item.quantity;
         clone.querySelector('.cart__qty--value').value = item.quantity;
-        clone.querySelector('.item__total').textContent = `$${(item.pricePerKg * item.kgPerUnit * item.quantity).toLocaleString('es-CO')},00`;
+        // Use item.pricekg to calculate the total per item
+        clone.querySelector('.item__total').textContent = `$${(item.pricekg * item.kgPerUnit * item.quantity).toLocaleString('es-CO')},00`;
 
-        // Botones
+        // Buttons
         const btnDecrease = clone.querySelector('.cart__btn--decrease');
         const btnIncrease = clone.querySelector('.cart__btn--increase');
         const btnRemove = clone.querySelector('.remove__item');
@@ -247,28 +253,28 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('../products-coffee.json')
         .then(res => res.json())
         .then(data => {
-            // Convertir array a objeto usando 'name' como clave
+            // Convert array to object using 'title' as key
             const productMap = {};
             data.forEach(product => {
-            productMap[product.name] = {
-                origin: product.origin,
-                shortdesc: product.shortdesc,
-                description: product.description,
-                pricePerKg: product.precio_kg_cop,
-                pricePerG: product.precio_g_cop,
-                stockKg: 20, // Puedes ajustar el stock inicial
-                images: product.images || [],
-                benefits: product.benefits || [],
-                additional: product.additional || []
-            };
+                productMap[product.title] = {
+                    origin: product.origin,
+                    shortdesc: product.shortdesc,
+                    description: product.description,
+                    pricekg: product.pricekg,
+                    priceg: product.priceg,
+                    stock: product.stock,
+                    images: product.images || [],
+                    benefits: product.benefits || [],
+                    additional: product.additional || []
+                };
             });
 
-            // Si no hay datos guardados, usar este JSON y guardarlo en localStorage
+            // If there is no data saved, use this JSON and save it to localStorage
             if (!localStorage.getItem('productsData')) {
-            localStorage.setItem('productsData', JSON.stringify(productMap));
+                localStorage.setItem('productsData', JSON.stringify(productMap));
             }
 
-            // Asignar productos desde localStorage o fallback
+            // Assign products from localStorage or fallback
             window.defaultProducts = productMap;
             productsData = JSON.parse(localStorage.getItem('productsData')) || productMap;
 
@@ -315,16 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Rendering products using existing nodes ---
     function renderProducts() {
+        if (!productsData || typeof productsData !== 'object') return;
         productsContainer.innerHTML = '';
         const template = document.getElementById('product-card-template');
-        Object.entries(productsData).forEach(([name, data]) => {
+        Object.entries(productsData).forEach(([title, data]) => {
             const clone = template.content.cloneNode(true);
 
-            // Fill in data
-            clone.querySelector('.product__card--image').src = data.images && data.images[0] ? data.images[0] : (data.image || '');
-            clone.querySelector('.product__card--image').alt = `Product ${name}`;
-            clone.querySelector('.product__card--title').textContent = name;
-            clone.querySelector('.stock__available').textContent = data.stockKg;
+            // Adjust image path for subfolders
+            let imgPath = data.images && data.images[0] ? data.images[0] : (data.image || '');
+            if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
+                imgPath = '../' + imgPath;
+            }
+            clone.querySelector('.product__card--image').src = imgPath;
+            clone.querySelector('.product__card--image').alt = `Product ${title}`;
+            clone.querySelector('.product__card--title').textContent = title;
+            clone.querySelector('.stock__available').textContent = data.stock;
 
             // Show elements only for admin
             clone.querySelectorAll('.admin__only').forEach(el => {
@@ -343,12 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnDelete = clone.querySelector('.btn__delete--product');
             if (btnDelete) {
                 btnDelete.onclick = () => {
-                    if (confirm(`Surely you want to delete "${name}"?`)) {
-                        delete productsData[name];
+                    if (confirm(`Surely you want to delete "${title}"?`)) {
+                        delete productsData[title];
                         localStorage.setItem('productsData', JSON.stringify(productsData));
                         // Remove from cart if it exists
                         Object.keys(cart).forEach(key => {
-                            if (cart[key].productName === name) {
+                            if (cart[key].productName === title) {
                                 delete cart[key];
                             }
                         });
@@ -363,10 +374,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // --- Visual warning of low or no stock ---
             const stockWarning = clone.querySelector('.stock__warning');
             const btnAdd = clone.querySelector('.btn__add--product');
-            if (data.stockKg <= 10 && data.stockKg > 0) {
-                stockWarning.textContent = `¡They are left alone ${data.stockKg} kg in stock!`;
+            if (data.stock <= 10 && data.stock > 0) {
+                stockWarning.textContent = `¡They are left alone ${data.stock} kg in stock!`;
                 stockWarning.style.display = 'inline';
-            } else if (data.stockKg === 0) {
+            } else if (data.stock === 0) {
                 stockWarning.textContent = 'There are no more products in stock.';
                 stockWarning.style.display = 'inline';
                 btnAdd.disabled = true;
@@ -385,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         e.target.classList.contains('product__list--item') ||
                         e.target.classList.contains('quantity__input')
                     ) return;
-                    window.location.href = `../product/product.html?product=${encodeURIComponent(name)}`;
+                    window.location.href = `../product/product.html?product=${encodeURIComponent(title)}`;
                 });
             }
             productsContainer.appendChild(clone);
@@ -397,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addProductListeners() {
         document.querySelectorAll('.product__card').forEach(card => {
             const btnAdd = card.querySelector('.btn__add--product');
-            const productName = card.querySelector('.product__card--title').textContent.trim();
+            const productTitle = card.querySelector('.product__card--title').textContent.trim();
             const quantityInput = card.querySelector('.quantity__input');
             const btnIncrease = card.querySelector('.btn__increase');
             const btnDecrease = card.querySelector('.btn__decrease');
@@ -405,13 +416,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const kiloButtons = card.querySelectorAll('.product__list--item');
             let selectedKg = 1;
             let quantity = 1;
-            const pricePerKg = productsData[productName].pricePerKg;
+            const pricekg = productsData[productTitle].pricekg;
 
             // Initialize
             kiloButtons.forEach((btn, i) => {
                 if (i === 0) btn.classList.add('active');
             });
-            priceDisplay.textContent = `$${(pricePerKg * selectedKg).toLocaleString('es-CO')},00`;
+            priceDisplay.textContent = `$${(pricekg * selectedKg).toLocaleString('es-CO')},00`;
 
             // Change presentation
             kiloButtons.forEach(btn => {
@@ -427,11 +438,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btnIncrease.addEventListener('click', () => {
                 let qty = parseInt(quantityInput.value);
                 const totalKgAfter = (qty + 1) * selectedKg;
-                if (totalKgAfter <= productsData[productName].stockKg) {
+                if (totalKgAfter <= productsData[productTitle].stock) {
                     quantityInput.value = qty + 1;
                     updatePrice();
                 } else {
-                    showProductStockWarning(card, productName, productsData[productName].stockKg);
+                    showProductStockWarning(card, productTitle, productsData[productTitle].stock);
                 }
             });
             btnDecrease.addEventListener('click', () => {
@@ -444,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function updatePrice() {
                 const qty = parseInt(quantityInput.value);
-                const totalPrice = pricePerKg * selectedKg * qty;
+                const totalPrice = pricekg * selectedKg * qty;
                 priceDisplay.textContent = `$${totalPrice.toLocaleString('es-CO')},00`;
             }
 
@@ -455,25 +466,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 const qty = parseInt(quantityInput.value);
-                const key = `${productName}|${selectedKg}`;
+                const key = `${productTitle}|${selectedKg}`;
 
                 // Calculate total kg in cart for this product without counting this presentation
                 let totalKgOtherPresentations = Object.entries(cart).reduce((acc, [k, v]) => {
-                    if (v.productName === productName && k !== key) {
+                    if (v.productName === productTitle && k !== key) {
                         return acc + v.quantity * v.kgPerUnit;
                     }
                     return acc;
                 }, 0);
 
                 const newTotalKgForThisKey = (cart[key] ? cart[key].quantity : 0) * selectedKg + qty * selectedKg;
-                if (totalKgOtherPresentations + newTotalKgForThisKey > productsData[productName].stockKg) {
-                    showProductStockWarning(card, productName, productsData[productName].stockKg - totalKgOtherPresentations);
+                if (totalKgOtherPresentations + newTotalKgForThisKey > productsData[productTitle].stock) {
+                    showProductStockWarning(card, productTitle, productsData[productTitle].stock - totalKgOtherPresentations);
                     return;
                 }
 
                 // Discount stock in real time
-                productsData[productName].stockKg -= qty * selectedKg;
-                if (productsData[productName].stockKg < 0) productsData[productName].stockKg = 0;
+                productsData[productTitle].stock -= qty * selectedKg;
+                if (productsData[productTitle].stock < 0) productsData[productTitle].stock = 0;
                 localStorage.setItem('productsData', JSON.stringify(productsData));
                 renderProducts();
                 addProductListeners();
@@ -482,11 +493,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     cart[key].quantity += qty;
                 } else {
                     cart[key] = {
-                        productName,
+                        productName: productTitle,
                         quantity: qty,
                         kgPerUnit: selectedKg,
-                        pricePerKg,
-                        image: productsData[productName].images && productsData[productName].images[0] ? productsData[productName].images[0] : (productsData[productName].image || '')
+                        pricekg,
+                        image: productsData[productTitle].images && productsData[productTitle].images[0] ? productsData[productTitle].images[0] : (productsData[productTitle].image || '')
                     };
                 }
                 saveCart();
@@ -611,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Balance simulation
         const userBalance = parseInt(localStorage.getItem('userBalance') || '0', 10);
         const total = Object.values(cart).reduce(
-            (acc, item) => acc + item.quantity * item.kgPerUnit * item.pricePerKg,
+            (acc, item) => acc + item.quantity * item.kgPerUnit * item.pricekg,
             0
         );
         if (userBalance < total) {

@@ -7,45 +7,18 @@
 =   Scroll-based Animations
 ==============================*/
 
-let lastScrollY = window.scrollY;
-let scrollDirection = "down";
-
-// Detect scroll direction
-window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-    scrollDirection = currentScrollY > lastScrollY ? "down" : "up";
-    lastScrollY = currentScrollY;
-});
-
-const navigationType = performance.getEntriesByType("navigation")[0]?.type;
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        const el = entry.target;
-
-        if (
-            entry.isIntersecting &&
-            (
-                scrollDirection === "down" ||
-                (navigationType === "reload" && !el.dataset.revealedOnReload)
-            )
-        ) {
-            el.classList.add("visible");
-            el.classList.remove("animate");
-            void el.offsetWidth; // Force reflow to restart animation
-            el.classList.add("animate");
-
-            // Mark as revealed on reload to prevent repeating
-            if (navigationType === "reload") {
-                el.dataset.revealedOnReload = "true";
-            }
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0 });
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.scroll__reveal').forEach(el => observer.observe(el));
+}, {
+    threshold: 0.1
 });
+
+document.querySelectorAll('.fade__left, .fade__right, .fade__bottom').forEach(el => observer.observe(el));
 
 
 
@@ -145,3 +118,4 @@ window.addEventListener('scroll', () => {
         userMenu.classList.remove('show');
     }
 });
+

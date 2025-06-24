@@ -3,7 +3,7 @@
 =   File: layout-footer.css
 ==============================*/
 
-/*======================================  
+/*======================================
 =   FOOTER
 ======================================*/
 
@@ -12,6 +12,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 20px 40px;
     background-color: var(--color-primary);
 }
 
@@ -23,7 +24,6 @@ footer {
     gap: 10px;
     width: clamp(300px, 100%, 1200px);
     margin: 40px 0 40px;
-    padding-inline: 20px;
 }
 
 #footer-contact-list,
@@ -145,7 +145,8 @@ footer {
 /* Footer copyright */
 footer p {
     font-size: .8rem;
-    margin-bottom: 20px;
+    letter-spacing: .05rem;
+    text-align: center;
 }
 
 
@@ -154,6 +155,7 @@ footer p {
     footer {
         position: relative;
     }
+
     #footer-content {
         flex-direction: row;
         align-items: start;
@@ -167,7 +169,7 @@ footer p {
     #footer-logo {
         position: absolute;
         left: 50%;
-        bottom: 38px;
+        bottom: 55px;
         transform: translate(-50%);
         margin-bottom: 10px;
     }

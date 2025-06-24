@@ -1,0 +1,30 @@
+{
+    "coffeeBeans": [
+        { "name": "Laura M.", "rating": 5, "text": "The aroma is amazing. Since I started grinding beans at home, coffee tastes much fresher and deeper." },
+        { "name": "Carlos A.", "rating": 4, "text": "Very good flavor and excellent quality. I just wish the packaging was more airtight." },
+        { "name": "Sofía P.", "rating": 3, "text": "Good coffee, but a bit tricky if you don't have a grinder." },
+        { "name": "Andrés G.", "rating": 5, "text": "Perfect for French press. I got a full-bodied cup with delicious roasted notes." },
+        { "name": "Valentina R.", "rating": 4, "text": "Good value for money, though some beans were a bit uneven." }
+    ],
+    "groundCoffee": [
+        { "name": "Diego H.", "rating": 4, "text": "Perfect for quick mornings. Just open, pour, and it's ready." },
+        { "name": "Camila S.", "rating": 5, "text": "The flavor is well balanced, ideal for my drip coffee maker." },
+        { "name": "Julián T.", "rating": 3, "text": "Loses aroma quickly if not stored properly. Still very practical." },
+        { "name": "Natalia F.", "rating": 4, "text": "Comes with a great grind for espresso. I really liked it." },
+        { "name": "Sebastián L.", "rating": 2, "text": "Not as fresh as I expected. The packaging could be better." }
+    ],
+    "coffeeCapsules": [
+        { "name": "Lucía Q.", "rating": 5, "text": "I love the convenience. Coffee is ready in seconds and always tastes great." },
+        { "name": "Tomás E.", "rating": 4, "text": "Great variety of flavors, but some capsules seem half full." },
+        { "name": "Marcela V.", "rating": 5, "text": "Works perfectly with my Dolce Gusto machine. The aroma is intense." },
+        { "name": "Felipe D.", "rating": 3, "text": "Very practical, but the price per cup is a bit high." },
+        { "name": "Diana M.", "rating": 4, "text": "Perfect for work—no mess, no fuss." }
+    ],
+    "greenCoffee": [
+        { "name": "Laura Z.", "rating": 5, "text": "I use it for detox infusions. Great way to start the day." },
+        { "name": "Esteban K.", "rating": 3, "text": "The flavor is odd at first, but it's effective for health." },
+        { "name": "Paula Y.", "rating": 4, "text": "I roast it at home and it turns out amazing. You can tell the difference." },
+        { "name": "Alejandro C.", "rating": 2, "text": "I expected it to taste more like regular coffee. It’s too herbal." },
+        { "name": "Daniela N.", "rating": 5, "text": "Excellent for appetite control. I also recommend it in capsules." }
+    ]
+}

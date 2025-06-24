@@ -15,12 +15,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // If productsData is empty, use the default products and save them
     if (!productsData || Object.keys(productsData).length === 0) {
         productsData = window.defaultProducts;
+
+        // If it is an array, convert to an object using the title
+        if (Array.isArray(productsData)) {
+            const productDict = {};
+            for (const prod of productsData) {
+                productDict[prod.title] = prod;
+            }
+            productsData = productDict;
+        }
+
         localStorage.setItem('productsData', JSON.stringify(productsData));
     }
 
     const params = new URLSearchParams(window.location.search);
-    const productName = params.get('product');
-    const product = productsData[productName];
+    const productTitle = params.get('product');
+
+    // If productsData is in array, convert it to object
+    if (Array.isArray(productsData)) {
+        const fixedProductsData = {};
+        productsData.forEach(prod => {
+            fixedProductsData[prod.title] = prod;
+        });
+        productsData = fixedProductsData;
+        localStorage.setItem('productsData', JSON.stringify(productsData)); // update localStorage
+    }
+
+    const product = productsData[productTitle];
 
     // --- Show Product Information ---
     function renderProductInfo() {
@@ -30,48 +51,60 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.product__detail--pricekg').textContent = "";
             document.querySelector('.product__detail--priceg').textContent = "";
             document.querySelector('.product__detail--shortdesc').textContent = "";
-            document.querySelector('.product__description--text').textContent = "";
-            document.querySelector('.product__description--benefits').innerHTML = "";
-            document.querySelector('.product__details--list').innerHTML = "";
+            // Limpiar tabs
+            const descTab = document.querySelector('.tab__content.detalles .product__description--text');
+            if (descTab) descTab.innerHTML = '';
+            const benefitsTab = document.querySelector('.tab__content.benefits .product__description--benefits');
+            if (benefitsTab) benefitsTab.innerHTML = '';
+            const infoTab = document.querySelector('.tab__content.info .product__details--list');
+            if (infoTab) infoTab.innerHTML = '';
             return;
         }
 
-        document.querySelector('.product__detail--title').textContent = productName;
+        document.querySelector('.product__detail--title').textContent = productTitle;
         document.querySelector('.product__detail--origin').textContent = product.origin || '';
-        document.querySelector('.product__detail--pricekg').textContent = `$${product.pricePerKg.toLocaleString('es-CO')} kg`;
-        document.querySelector('.product__detail--priceg').textContent = `$${product.pricePerG.toLocaleString('es-CO')} g`;
+        document.querySelector('.product__detail--pricekg').textContent = `$${product.pricekg.toLocaleString('es-CO')} kg`;
+        document.querySelector('.product__detail--priceg').textContent = `$${product.priceg.toLocaleString('es-CO')} g`;
         document.querySelector('.product__detail--shortdesc').textContent = product.shortdesc || '';
-        const descContainer = document.querySelector('.product__description--text');
-        descContainer.innerHTML = '';
-        if (Array.isArray(product.description)) {
-            product.description.forEach(paragraph => {
+
+        // Description (details tab)
+        const descTab = document.querySelector('.tab__content.detalles .product__description--text');
+        if (descTab) {
+            descTab.innerHTML = '';
+            if (Array.isArray(product.description)) {
+                product.description.forEach(paragraph => {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    descTab.appendChild(p);
+                });
+            } else if (typeof product.description === 'string') {
                 const p = document.createElement('p');
-                p.textContent = paragraph;
-                descContainer.appendChild(p);
-            });
-        } else if (typeof product.description === 'string') {
-            const p = document.createElement('p');
-            p.textContent = product.description;
-            descContainer.appendChild(p);
+                p.textContent = product.description;
+                descTab.appendChild(p);
+            }
         }
 
-        // Benefits
-        const benefits = document.querySelector('.product__description--benefits');
-        benefits.innerHTML = '';
-        (product.benefits || []).forEach(b => {
-            const li = document.createElement('li');
-            li.textContent = `- ${b}`;
-            benefits.appendChild(li);
-        });
+        // Benefits (tab benefits)
+        const benefitsTab = document.querySelector('.tab__content.benefits .product__description--benefits');
+        if (benefitsTab) {
+            benefitsTab.innerHTML = '';
+            (product.benefits || []).forEach(b => {
+                const li = document.createElement('li');
+                li.textContent = `- ${b}`;
+                benefitsTab.appendChild(li);
+            });
+        }
 
-        // Additional information
-        const additional = document.querySelector('.product__details--list');
-        additional.innerHTML = '';
-        (product.additional || []).forEach(item => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${item.label}:</strong> ${item.value}`;
-            additional.appendChild(li);
-        });
+        // Additional information (info tab)
+        const infoTab = document.querySelector('.tab__content.info .product__details--list');
+        if (infoTab) {
+            infoTab.innerHTML = '';
+            (product.additional || []).forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${item.label}:</strong> ${item.value}`;
+                infoTab.appendChild(li);
+            });
+        }
     }
 
     // --- Image and Thumbnail Gallery ---
@@ -83,16 +116,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if (thumbsContainer) thumbsContainer.innerHTML = '';
             return;
         }
-        mainImg.src = product.images[0];
-        mainImg.alt = productName;
+        // Adjust image paths to work from any subfolder
+        let mainImgPath = product.images[0];
+        if (mainImgPath && !mainImgPath.startsWith('/') && !mainImgPath.startsWith('http')) {
+            mainImgPath = '../' + mainImgPath;
+        }
+        mainImg.src = mainImgPath;
+        mainImg.alt = productTitle;
         thumbsContainer.innerHTML = '';
         product.images.forEach((img, idx) => {
+            let thumbPath = img;
+            if (thumbPath && !thumbPath.startsWith('/') && !thumbPath.startsWith('http')) {
+                thumbPath = '../' + thumbPath;
+            }
             const thumb = document.createElement('img');
-            thumb.src = img;
-            thumb.alt = productName + ' miniature';
+            thumb.src = thumbPath;
+            thumb.alt = productTitle + ' miniature';
             if (idx === 0) thumb.classList.add('active');
             thumb.addEventListener('click', () => {
-                mainImg.src = img;
+                mainImg.src = thumbPath;
                 thumbsContainer.querySelectorAll('img').forEach(i => i.classList.remove('active'));
                 thumb.classList.add('active');
             });
@@ -162,18 +204,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.description__tabs .tab__btn').forEach(b => b.classList.remove('active'));
                 document.querySelectorAll('.tab__content').forEach(tc => tc.classList.remove('active'));
                 btn.classList.add('active');
-                document.querySelector('.tab__content.' + btn.dataset.tab).classList.add('active');
+                const tabContent = document.querySelector('.tab__content.' + btn.dataset.tab);
+                if (tabContent) tabContent.classList.add('active');
             });
         });
     }
 
+    fetch('../comments-coffe.json')
+        .then(res => res.json())
+        .then(json => {
+            const existing = localStorage.getItem('commentsData');
+            if (!existing) {
+                localStorage.setItem('commentsData', JSON.stringify(json));
+            }
+            loadComments();
+            const updateCarousel = setupCommentsCarousel();
+            setupAddComment(updateCarousel);
+        })
+        .catch(err => {
+            console.error('Error loading comments JSON:', err);
+            loadComments();
+            const updateCarousel = setupCommentsCarousel();
+            setupAddComment(updateCarousel);
+        });
+
+    // Mapping product names to comment keys
+    const commentsKeyMap = {
+        'Coffee Beans': 'coffeeBeans',
+        'Ground Coffee': 'groundCoffee',
+        'Coffee Capsules': 'capsuleCoffee',
+        'Green Coffee (unroasted)': 'greenCoffee'
+    };
+
     // --- Comments by Product ---
     function loadComments() {
         const commentsData = JSON.parse(localStorage.getItem('commentsData') || '{}');
-        const productComments = commentsData[productName] || [];
+        const commentsKey = commentsKeyMap[productTitle] || productTitle;
+        console.log('productTitle:', productTitle);
+        console.log('commentsKey:', commentsKey);
+        console.log('commentsData keys:', Object.keys(commentsData));
+        console.log('commentsData[commentsKey]:', commentsData[commentsKey]);
+        const productComments = commentsData[commentsKey] || [];
         const track = document.querySelector(".comments__track");
+        const wrapper = document.querySelector(".comments__carousel");
+        const msgClass = 'no-comments-msg';
+
+        // Delete previous message if it exists
+        let prevMsg = document.querySelector('.' + msgClass);
+        if (prevMsg) prevMsg.remove();
         if (!track) return;
         track.innerHTML = '';
+        if (productComments.length === 0) {
+            // Show message and hide carousel
+            const msg = document.createElement('p');
+            msg.className = msgClass;
+            msg.textContent = 'There are no comments.';
+            track.parentNode.insertBefore(msg, track);
+            if (wrapper) wrapper.style.display = 'none';
+            return;
+        } else {
+            if (wrapper) wrapper.style.display = '';
+        }
         productComments.forEach(c => {
             const article = document.createElement('article');
             article.className = 'comments__article';
@@ -183,6 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>“${c.text}”</p>`;
             track.appendChild(article);
         });
+        console.log('productTitle:', productTitle);
+        console.log('product:', product);
+        console.log('product.title:', product?.title);
     }
 
     // --- Comment Carousel ---
@@ -257,8 +351,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rating = parseInt(document.getElementById('comment-rating').value);
                 const text = document.getElementById('comment-text').value;
                 const commentsData = JSON.parse(localStorage.getItem('commentsData') || '{}');
-                if (!commentsData[productName]) commentsData[productName] = [];
-                commentsData[productName].push({ name, rating, text });
+                const commentsKey = commentsKeyMap[productTitle] || productTitle;
+                if (!commentsData[commentsKey]) commentsData[commentsKey] = [];
+                commentsData[commentsKey].push({ name, rating, text });
                 localStorage.setItem('commentsData', JSON.stringify(commentsData));
                 loadComments();
                 commentForm.reset();
@@ -274,14 +369,18 @@ document.addEventListener('DOMContentLoaded', () => {
         sugTrack.innerHTML = '';
         Object.keys(productsData).forEach(name => {
             const p = productsData[name];
-            if (name !== productName && p.stockKg > 0) {
+            if (name !== productTitle && p.stock > 0) {
                 const card = document.createElement('div');
                 card.className = 'suggestion__card';
 
                 // Image
                 if (p.images && p.images[0]) {
+                    let sugImgPath = p.images[0];
+                    if (sugImgPath && !sugImgPath.startsWith('/') && !sugImgPath.startsWith('http')) {
+                        sugImgPath = '../' + sugImgPath;
+                    }
                     const img = document.createElement('img');
-                    img.src = p.images[0];
+                    img.src = sugImgPath;
                     img.alt = name;
                     card.appendChild(img);
                 }
@@ -295,13 +394,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Price per kg
                 const priceKg = document.createElement('p');
                 priceKg.className = 'suggestion__card--pricekg';
-                priceKg.textContent = `$${p.pricePerKg.toLocaleString('es-CO')} kg`;
+                priceKg.textContent = `$${p.pricekg.toLocaleString('es-CO')} kg`;
                 card.appendChild(priceKg);
 
                 // Price per g
                 const priceG = document.createElement('p');
                 priceG.className = 'suggestion__card--priceg';
-                priceG.textContent = `$${p.pricePerG.toLocaleString('es-CO')} g`;
+                priceG.textContent = `$${p.priceg.toLocaleString('es-CO')} g`;
                 card.appendChild(priceG);
 
                 // View product button
@@ -321,64 +420,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Suggestion Carousel ---
     function setupSuggestionsCarousel() {
-        let sugIndex = 0;
-        function updateSuggestions() {
-            const track = document.querySelector(".suggestions__track");
+        let currentIndex = 0;
+
+        const track = document.querySelector(".suggestions__track");
+        const cards = track ? track.querySelectorAll(".suggestion__card") : [];
+        const wrapper = document.querySelector(".suggestions__wrapper");
+
+        const leftBtn = document.querySelector(".arrow.left");
+        const rightBtn = document.querySelector(".arrow.right");
+
+        function updateCarousel() {
             const cards = track ? track.querySelectorAll(".suggestion__card") : [];
-            const wrapper = document.querySelector(".suggestions__wrapper");
             if (!track || !wrapper || cards.length === 0) return;
 
             const cardWidth = 300;
-            const gap = 20;
-            const totalWidth = cards.length * cardWidth + (cards.length - 1) * gap;
-            const maxWidth = 1200;
-            const windowWidth = window.innerWidth;
-            // The maximum width allowed per window and per quantity of products
-            const wrapperWidth = Math.min(maxWidth, windowWidth, totalWidth);
-
-            wrapper.style.maxWidth = wrapperWidth + "px";
-            wrapper.style.width = wrapperWidth + "px";
+            const gap = 30;
+            const totalWidth = cards.length * (cardWidth + gap) - gap;
+            const wrapperWidth = wrapper.offsetWidth;
 
             const visible = Math.max(1, Math.floor((wrapperWidth + gap) / (cardWidth + gap)));
             const maxIndex = Math.max(0, cards.length - visible);
 
-            let offset = 0;
-            if (cards.length <= visible) {
-                // Center all cards if they fit
-                offset = -(wrapperWidth - totalWidth) / 2;
-            } else if (sugIndex === maxIndex) {
-                offset = Math.max(0, totalWidth - wrapperWidth);
-            } else {
-                // Center the active card normally
-                const center = Math.floor(visible / 2);
-                let focusIndex = sugIndex + center;
-                if (focusIndex > cards.length - 1) focusIndex = cards.length - 1;
-                offset = (focusIndex - center) * (cardWidth + gap) - (wrapperWidth - cardWidth) / 2;
-                if (offset < 0) offset = 0;
+            //Ensures that currentIndex is within limits
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-                // Do not let the right edge pass
-                const maxOffset = Math.max(0, totalWidth - wrapperWidth);
-                if (offset > maxOffset) offset = maxOffset;
-            }
+            // Dynamic side padding to display latest full cards
+            const sidePadding = wrapperWidth >= totalWidth ? 0 : (wrapperWidth - cardWidth) / 50;
+            track.style.paddingInline = `${sidePadding}px`;
+
+            // Calculate displacement
+            let offset = currentIndex * (cardWidth + gap);
+            const maxOffset = Math.max(0, totalWidth + sidePadding * 2 - wrapperWidth);
+            if (offset > maxOffset) offset = maxOffset;
+
             track.style.transform = `translateX(-${offset}px)`;
 
+            // Visual centering if all products fit
+            if (totalWidth <= wrapperWidth) {
+                track.style.marginLeft = 'auto';
+                track.style.marginRight = 'auto';
+            } else {
+                track.style.marginLeft = '0';
+                track.style.marginRight = '0';
+            }
+
             // Arrows
-            leftBtn.disabled = sugIndex === 0;
-            rightBtn.disabled = sugIndex === maxIndex;
+            if (leftBtn) leftBtn.disabled = currentIndex === 0;
+            if (rightBtn) rightBtn.disabled = currentIndex === maxIndex;
         }
 
-        const sugLeftBtn = document.querySelector('.arrow.left');
-        const sugRightBtn = document.querySelector('.arrow.right');
-        if (sugLeftBtn) sugLeftBtn.addEventListener('click', () => {
-            if (sugLeftBtn.disabled) return;
-            sugIndex--; updateSuggestions();
-        });
-        if (sugRightBtn) sugRightBtn.addEventListener('click', () => {
-            if (sugRightBtn.disabled) return;
-            sugIndex++; updateSuggestions();
-        });
-        window.addEventListener('resize', updateSuggestions);
-        setTimeout(updateSuggestions, 200);
+        // Navigation events
+        if (leftBtn) {
+            leftBtn.addEventListener('click', () => {
+                currentIndex--;
+                updateCarousel();
+            });
+        }
+
+        if (rightBtn) {
+            rightBtn.addEventListener('click', () => {
+                currentIndex++;
+                updateCarousel();
+            });
+        }
+
+        window.addEventListener('resize', updateCarousel);
+
+        // Initialize carousel after rendering products
+        setTimeout(() => {
+            currentIndex = 0;
+            updateCarousel();
+        }, 300);
     }
 
     // --- Quantity Interaction ---
@@ -439,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update Stock Status
         function updateStockState() {
-            const stock = product ? product.stockKg : 0;
+            const stock = product ? product.stock : 0;
             const qty = parseInt(input.value) || 1;
             if (stock < qty) {
                 btnAdd.disabled = true;
@@ -461,10 +574,10 @@ document.addEventListener('DOMContentLoaded', () => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                const stock = product ? product.stockKg : 0;
+                const stock = product ? product.stock : 0;
                 let cart = JSON.parse(localStorage.getItem('cart') || '{}');
                 const qty = parseInt(input.value) || 1;
-                const key = `${productName}|1`;
+                const key = `${productTitle}|1`;
 
                 // Check stock
                 if (stock < qty) {
@@ -483,19 +596,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     cart[key].quantity += qty;
                 } else {
                     cart[key] = {
-                        productName,
+                        productName: productTitle,
                         quantity: qty,
                         kgPerUnit: 1,
-                        pricePerKg: product.pricePerKg,
+                        pricekg: product.pricekg,
                         image: product.images && product.images[0] ? product.images[0] : ''
                     };
                 }
 
                 // Save cart and products
                 localStorage.setItem('cart', JSON.stringify(cart));
-                product.stockKg -= qty;
-                if (product.stockKg < 0) product.stockKg = 0;
-                productsData[productName].stockKg = product.stockKg;
+                product.stock -= qty;
+                if (product.stock < 0) product.stock = 0;
+                productsData[productTitle].stock = product.stock;
                 localStorage.setItem('productsData', JSON.stringify(productsData));
 
                 // Update the cart panel and counter

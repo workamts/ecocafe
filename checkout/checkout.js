@@ -89,10 +89,14 @@ function renderCartSummary() {
         const clone = template.cloneNode(true);
         clone.style.display = "flex";
 
-        // Image
+        // Imagen: corregir ruta relativa
         const img = clone.querySelector('img');
         if (img) {
-            img.src = producto.image || producto.imagen || '';
+            let imgPath = producto.image || producto.imagen || '';
+            if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
+                imgPath = '../' + imgPath;
+            }
+            img.src = imgPath;
             img.alt = producto.productName || producto.nombre || '';
         }
 
@@ -122,8 +126,8 @@ function renderCartSummary() {
             if (value) value.textContent = qty;
         }
 
-        // PTotal price per product
-        const precioUnitario = producto.pricePerKg || producto.precio || 0;
+        // Unit and total price: use pricekg
+        const precioUnitario = producto.pricekg || producto.precio || 0;
         const precioTotal = precioUnitario * qty * (producto.kgPerUnit || 1);
         const totalDiv = clone.querySelector('.product__total');
         if (totalDiv) {
@@ -156,7 +160,7 @@ function renderCartSummary() {
 // --- Update order total and selected shipping method ---
 function updateOrderTotal() {
     let subtotal = checkoutCart.reduce((sum, p) => {
-        const precio = p.pricePerKg || p.precio || 0;
+        const precio = p.pricekg || p.precio || 0;
         const cantidad = p.quantity || p.cantidad || 0;
         const kgPerUnit = p.kgPerUnit || 1;
         return sum + (precio * cantidad * kgPerUnit);
@@ -380,7 +384,7 @@ function validateForm() {
         shippingCost = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
     }
     let subtotal = checkoutCart.reduce((sum, p) => {
-        const precio = p.pricePerKg || p.precio || 0;
+        const precio = p.pricekg || p.precio || 0;
         const cantidad = p.quantity || p.cantidad || 0;
         const kgPerUnit = p.kgPerUnit || 1;
         return sum + (precio * cantidad * kgPerUnit);

@@ -4,9 +4,13 @@
 =   File: product.css
 ==============================*/
 
-/*======================================  
+/*======================================
 =   Product detail section
 ======================================*/
+
+main {
+    background-color: var(--color-senary);
+}
 
 /* Hide product templates */
 #products-container,
@@ -94,6 +98,7 @@
 .product__detail--thumbnails img {
     aspect-ratio: 1 / 1;
     width: 70px;
+    height: auto;
     border-radius: 8px;
     object-fit: cover;
     cursor: pointer;
@@ -167,6 +172,7 @@ body.modal-open {
 .zoomed__img {
     aspect-ratio: 1 / 1;
     width: clamp(300px, 75vw, 600px);
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 0 10px var(--color-secondary);
@@ -180,7 +186,7 @@ body.modal-open {
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
-    width: clamp(300px, 75vw, 600px);
+    width: 80vw;
 }
 
 .product__detail--title {
@@ -191,12 +197,14 @@ body.modal-open {
 .product__detail--shortdesc,
 .product__detail--pricekg {
     font-size: 1rem;
+    letter-spacing: .05rem;
     color: var(--color-secondary);
 }
 
 .product__detail--origin {
     font-size: 1.1rem;
 }
+
 
 .product__container--price {
     display: flex;
@@ -330,18 +338,11 @@ input[type="number"] {
         flex-direction: column;
         width: auto;
     }
+
     .product__detail--info {
         flex: 1 1 300px;
         width: clamp(300px, 100%, 500px);
         margin-top: 0;
-    }
-
-    .product__detail--shortdesc {
-        width: clamp(300px, 100%, 650px);
-    }
-
-    .product__detail--purchase {
-        width: clamp(300px, 100%, 650px);
     }
 
     .custom__number--input,
@@ -353,17 +354,18 @@ input[type="number"] {
 
 
 
-/*======================================  
-=   Extended Description and 
+/*======================================
+=   Extended Description and
 =   Additional Data
 ======================================*/
 
 .product__description--container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    min-height: 300px;
     padding-inline: 50px;
     margin-top: 50px;
 }
@@ -434,7 +436,7 @@ input[type="number"] {
 /*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
     .product__description--container {
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         margin-top: 30px;
     }
@@ -456,7 +458,7 @@ input[type="number"] {
 
 
 
-/*======================================  
+/*======================================
 =   Comments Session
 ======================================*/
 
@@ -472,7 +474,7 @@ input[type="number"] {
 
 .comments h2 {
     margin-bottom: 10px;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 
@@ -483,13 +485,14 @@ input[type="number"] {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-top: 30px;
 }
 
 
 /* Visible area for scrolling track */
 .comments__wrapper {
     position: relative;
-    width: clamp(350px, 75vw, 1200px);
+    width: clamp(200px, 75vw, 1200px);
     overflow: hidden;
     scroll-behavior: smooth;
 }
@@ -515,6 +518,7 @@ input[type="number"] {
     border: 2px solid var(--color-tertiary);
     margin: 0;
     font-size: 1.1rem;
+    background-color: var(--color-octonary);
     box-shadow: 0 0 10px var(--color-tertiary);
 }
 
@@ -616,7 +620,7 @@ input[type="number"] {
 
 
 
-/*======================================  
+/*======================================
 =   Product suggestion session
 ======================================*/
 
@@ -627,50 +631,7 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-top: 5px solid var(--color-tertiary);
     margin-bottom: 50px;
-}
-
-
-/*---------- Ribbon (scrolling banner) ----------*/
-.ribbon__container {
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    height: 60px;
-    overflow: hidden;
-    background-color: var(--color-primary);
-}
-
-.ribbon__track {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-    animation: ribbon-scroll 40s linear infinite;
-}
-
-.ribbon__item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    white-space: nowrap;
-    color: var(--color-secondary);
-}
-
-.ribbon__item svg {
-    width: 24px;
-    height: auto;
-}
-
-@keyframes ribbon-scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }
 
 
@@ -678,7 +639,14 @@ input[type="number"] {
 .product__suggestions h2 {
     width: 100%;
     margin-top: 20px;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.product__suggestions span {
+    padding-inline: 30px;
+    font-size: .9rem;
+    letter-spacing: .05rem;
     text-align: center;
 }
 
@@ -687,44 +655,45 @@ input[type="number"] {
 .suggestions__carousel {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 20px;
+    justify-content: center;
     overflow: hidden;
+    width: 100%;
+    margin-top: 40px;
 }
 
 
 /* Carousel viewport */
 .suggestions__wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
+    position: relative;
+    width: clamp(300px, 75vw, 1200px);
+    border-radius: 10px;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 
 /* Scrollable track of product cards */
 .suggestions__track {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 30px;
+    width: fit-content;
+    margin: 0 auto;
     transition: transform 0.3s ease-in-out;
 }
 
 
 /* Individual suggestion card */
 .suggestion__card {
-    display: flex;
-    flex-direction: column;
-    scroll-snap-align: center;
     flex: 0 0 300px;
     width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
+    min-width: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-secondary);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--color-tertiary);
 }
 
 .suggestion__card img {
@@ -788,7 +757,7 @@ input[type="number"] {
     z-index: 10;
     padding: 0 10px;
     border: none;
-    font-size: 2rem;
+    font-size: 2.4rem;
     color: var(--color-secondary);
     background: none;
     cursor: pointer;
