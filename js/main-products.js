@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isUserLoggedIn = () => !!localStorage.getItem('loggedInUser');
     if (!localStorage.getItem('userBalance')) localStorage.setItem('userBalance', '500000');
 
-    fetch('../products-coffee.json')
+    fetch('./products-coffee.json')
         .then(res => res.json())
         .then(data => {
             // Convert array to object using 'title' as key
