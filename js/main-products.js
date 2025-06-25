@@ -69,12 +69,9 @@ function renderCart() {
     const template = document.getElementById('cart-item-template');
     Object.entries(cart).forEach(([key, item]) => {
         const clone = template.content.cloneNode(true);
-        //Fill data
+        // Fill data
         const img = clone.querySelector('.cart__img');
         let imgPath = item.image;
-        if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
-            imgPath = '../' + imgPath;
-        }
         img.src = imgPath;
         img.alt = `Product Image ${item.productName}`;
 
