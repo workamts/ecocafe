@@ -72,6 +72,9 @@ function renderCart() {
         // Fill data
         const img = clone.querySelector('.cart__img');
         let imgPath = item.image;
+        if (imgPath && !imgPath.startsWith('http') && !imgPath.startsWith('/')) {
+            imgPath = './' + imgPath;
+        }
         img.src = imgPath;
         img.alt = `Product Image ${item.productName}`;
 
