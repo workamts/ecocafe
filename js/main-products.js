@@ -73,7 +73,7 @@ function renderCart() {
         const img = clone.querySelector('.cart__img');
         let imgPath = item.image;
         if (imgPath && !imgPath.startsWith('http') && !imgPath.startsWith('/')) {
-            imgPath = './' + imgPath;
+            imgPath = '../' + imgPath;
         }
         img.src = imgPath;
         img.alt = `Product Image ${item.productName}`;
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         e.target.classList.contains('product__list--item') ||
                         e.target.classList.contains('quantity__input')
                     ) return;
-                    window.location.href = `../product/product.html?product=${encodeURIComponent(title)}`;
+                    window.location.href = `./product/product.html?product=${encodeURIComponent(title)}`;
                 });
             }
             productsContainer.appendChild(clone);

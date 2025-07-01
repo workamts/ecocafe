@@ -128,7 +128,7 @@ main {
     width: 100vw;
     height: 60px;
     overflow: hidden;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
 }
 
 .ribbon__track {
@@ -136,21 +136,6 @@ main {
     align-items: center;
     gap: 100px;
     animation: ribbon-scroll 40s linear infinite;
-}
-
-.ribbon__item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    white-space: nowrap;
-    color: var(--color-secondary);
-}
-
-.ribbon__item svg {
-    width: 24px;
-    height: auto;
 }
 
 @keyframes ribbon-scroll {
@@ -162,6 +147,25 @@ main {
     }
 }
 
+.ribbon__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--color-primary);
+}
+
+.ribbon__item svg {
+    width: 24px;
+    height: auto;
+}
+
+.ribbon__item span {
+    color: var(--color-primary);
+}
+
 
 /*---------- Admin add product button ----------*/
 .admin__only {
@@ -171,7 +175,7 @@ main {
 #admin-add-product-btn {
     display: none;
     padding: 10px 20px;
-    border: 2px solid var(--color-tertiary);
+    border: 1px solid var(--color-tertiary);
     border-radius: 5px;
     margin-top: 50px;
     font-size: 1.1rem;
@@ -445,19 +449,17 @@ main {
     gap: 30px;
     width: 100%;
     height: auto;
-    padding-block: 70px;
-    scroll-margin-top: 70px;
+    padding-bottom: 70px;
     background-color: var(--color-quinary);
     box-shadow: 0 0 10px var(--color-secondary);
 }
 
 #about-us-image {
-    width: 85vw;
+    width: 100%;
     height: auto;
     border: 15px;
     object-fit: cover;
 }
-
 
 #group-about-us {
     display: flex;
@@ -520,13 +522,14 @@ main {
     align-items: center;
 }
 
-#about-values-list li img {
+#about-values-list li svg {
     width: 48px;
     height: auto;
+    color: var(--color-tertiary);
     transition: transform .4s ease;
 }
 
-#about-values-list li img:hover {
+#about-values-list li svg:hover {
     transform: scale(1.1);
 }
 
@@ -538,6 +541,12 @@ main {
 
 
 /*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #about-us {
+        scroll-margin-top: 70px;
+    }
+}
+
 @media (min-width: 992px) {
     #about-us {
         flex-direction: row-reverse;
