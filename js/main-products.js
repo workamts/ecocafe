@@ -72,9 +72,6 @@ function renderCart() {
         // Fill data
         const img = clone.querySelector('.cart__img');
         let imgPath = item.image;
-        if (imgPath && !imgPath.startsWith('http') && !imgPath.startsWith('/')) {
-            imgPath = '../' + imgPath;
-        }
         img.src = imgPath;
         img.alt = `Product Image ${item.productName}`;
 
@@ -329,9 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Adjust image path for subfolders
             let imgPath = data.images && data.images[0] ? data.images[0] : (data.image || '');
-            if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
-                imgPath = '../' + imgPath;
-            }
             clone.querySelector('.product__card--image').src = imgPath;
             clone.querySelector('.product__card--image').alt = `Product ${title}`;
             clone.querySelector('.product__card--title').textContent = title;
