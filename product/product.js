@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const wrapper = document.querySelector(".comments__wrapper");
             if (!track || !wrapper || comments.length === 0) return;
 
-            const cardWidth = 350;
+            const cardWidth = 300;
             const gap = 30;
             const visible = Math.max(1, Math.floor((wrapper.offsetWidth + gap) / (cardWidth + gap)));
             const maxIndex = Math.max(0, comments.length - visible);

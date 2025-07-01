@@ -508,12 +508,12 @@ input[type="number"] {
 
 /*---------- Individual comment card ----------*/
 .comments__article {
-    flex: 0 0 350px;
+    flex: 0 0 300px;
     display: flex;
     flex-direction: column;
-    min-width: 350px;
-    width: 350px;
-    max-width: 350px;
+    min-width: 300px;
+    width: 300px;
+    max-width: 300px;
     padding: 2rem;
     border: 2px solid var(--color-tertiary);
     margin: 0;
@@ -778,4 +778,19 @@ input[type="number"] {
 .suggestions__carousel .arrow .right {
     position: absolute;
     right: 0;
+}
+
+
+/* --- Hidden but functional horizontal scroll on mobile --- */
+.product__detail--thumbnails,
+.comments__wrapper,
+.suggestions__wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+.product__detail--thumbnails::-webkit-scrollbar,
+.comments__wrapper::-webkit-scrollbar,
+.suggestions__wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
