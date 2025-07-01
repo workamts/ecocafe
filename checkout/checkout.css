@@ -749,17 +749,25 @@ footer p {
         height: 100%;
     }
 
+    /* --- Order Summary Flex Layout --- */
     #order-summary {
         position: sticky;
         top: 0;
+        display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         width: 45%;
-        height: 100%;
+        min-height: 100vh;
         padding-inline: 50px;
+        padding-block: 40px 50px;
+        background-color: var(--color-secondary);
     }
 
+
     #order-summary-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
         width: clamp(300px, 35vw, 450px);
     }
 

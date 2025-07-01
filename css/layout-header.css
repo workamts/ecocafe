@@ -133,6 +133,14 @@ header {
 =   SHOPPING CART PANEL
 ======================================*/
 
+/* Prevents movement when the cart is open */
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100vw;
+}
+
+
 /* Cart button and overlay styles */
 #cart-container {
     display: flex;

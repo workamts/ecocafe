@@ -72,6 +72,9 @@ function renderCart() {
         // Fill data
         const img = clone.querySelector('.cart__img');
         let imgPath = item.image;
+        if (imgPath && !imgPath.startsWith('http')) {
+            imgPath = '/ecocafe/' + imgPath.replace(/^\/|^\.\//, '');
+        }
         img.src = imgPath;
         img.alt = `Product Image ${item.productName}`;
 
