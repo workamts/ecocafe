@@ -3,24 +3,6 @@
 =   File: layout-header.css
 ==============================*/
 
-:root {
-    --color-primary: #faf6f1;
-    --color-secondary: #382618;
-    --color-tertiary: #6b4c35;
-    --color-quaternary: #406e00;
-    --color-quinary: #100d0a;
-    --color-senary: #fbfceb;
-    --color-septenary: #c5c4c0;
-    --color-octonary: #fafafa;
-    --color-nonary: #d4edda;
-    --color-denary: #721c24;
-    --color-undenary: #f8d7da;
-    --font-main: 'Playfair Display', serif;
-    --font-secondary: 'Open Sans', sans-serif;
-}
-
-
-
 /*======================================
 =   HEADER
 ======================================*/
