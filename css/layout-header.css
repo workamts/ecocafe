@@ -23,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     max-width: 1440px;
     height: 70px;
     padding-inline: 20px;

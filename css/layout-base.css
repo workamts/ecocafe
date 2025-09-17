@@ -19,8 +19,8 @@
     --color-nonary: #d4edda;
     --color-denary: #721c24;
     --color-undenary: #f8d7da;
-    --font-main: 'Playfair Display', serif;
-    --font-secondary: 'Open Sans', sans-serif;
+    --font-main: 'Poppins', sans-serif;
+    --font-secondary: 'Quicksand', sans-serif;
 }
 
 
@@ -64,6 +64,7 @@ body {
 body, nav, footer, p, a, button, legend, small, span, strong, textarea, input, select, label {
     font-family: var(--font-secondary);
     color: var(--color-secondary);
+    font-weight: 600;
 }
 
 
