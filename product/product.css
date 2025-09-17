@@ -454,7 +454,7 @@ input[type="number"] {
 }
 
 
-/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+/*------------- MEDIA QUERIES: EXTENDED DESCRIPTION AND ADDITIONAL DATA TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
     .product__description--container {
         justify-content: flex-start;
@@ -488,7 +488,8 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-block: 50px 70px;
+    max-width: 1440px;
+    padding: 50px 20px;
     text-align: center;
 }
 
@@ -498,7 +499,7 @@ input[type="number"] {
 }
 
 
-/* Main container for the carousel */
+/*--- Main container for the carousel ---*/
 .comments__carousel {
     position: relative;
     display: flex;
@@ -651,7 +652,8 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    max-width: 1440px;
+    padding: 50px 20px;
 }
 
 
