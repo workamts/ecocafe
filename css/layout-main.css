@@ -115,7 +115,7 @@ main {
 }
 
 
-/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+/*------------- MEDIA QUERIES: HERO TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
     #hero {
         height: calc(100vh - 70px);
@@ -307,7 +307,6 @@ main {
     gap: 30px;
     width: 100%;
     padding: 100px 20px;
-    border: 1px solid;
 }
 
 /* Product Card */
@@ -465,7 +464,7 @@ main {
 }
 
 
-/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+/*------------- MEDIA QUERIES: PRODUCTS TABLET AND DESKTOP -------------*/
 @media (min-width: 687px) {
     .product__card {
         flex-direction: column;
@@ -495,18 +494,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     width: 100%;
     height: auto;
-    padding-bottom: 70px;
     background-color: var(--color-quinary);
-    box-shadow: 0 0 10px var(--color-secondary);
+    box-shadow: 0 0 10px var(--color-septenary);
 }
 
 #about-us-image {
     width: 100%;
     height: auto;
-    border: 15px;
     object-fit: cover;
 }
 
@@ -516,10 +512,11 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 50px 20px;
 }
 
 #container-about-us {
-    width: 85vw;
+    width: 100%;
     height: auto;
     text-align: center;
 }
@@ -532,6 +529,7 @@ main {
 
 #container-about-us p {
     margin-top: 10px;
+    font-size: .9rem;
     letter-spacing: .1rem;
     color: var(--color-primary);
 }
@@ -549,6 +547,8 @@ main {
     justify-content: center;
     align-items: center;
     gap: 15px;
+    width: auto;
+
 }
 
 #about-values-title {
@@ -579,31 +579,24 @@ main {
 }
 
 #about-values-list li svg:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 #about-values-list li span {
-    letter-spacing: .1rem;
     font-size: .9rem;
+    letter-spacing: .1rem;
     color: var(--color-septenary);
 }
 
 
-/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+/*------------- MEDIA QUERIES: ABOUT US TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
-    #about-us {
-        scroll-margin-top: 70px;
-    }
-}
-
-@media (min-width: 992px) {
     #about-us {
         flex-direction: row-reverse;
         justify-content: flex-start;
-        gap: 50px;
-        padding: 0;
-        height: 100vh;
-        padding-left: 50px;
+        gap: 30px;
+        height: 120vh;
+        padding-left: 20px;
     }
 
     #about-us-image {
@@ -613,13 +606,17 @@ main {
     }
 
     #group-about-us {
-        justify-content: flex-end;
-        align-items: flex-end;
-        padding-block: 50px;
+        padding: 0;
     }
 
     #container-about-us {
-        width: auto;
+        max-width: 650px;
+    }
+}
+
+@media (min-width: 992px) {
+    #about-us {
+        height: 100vh;
     }
 }
 /*------------- END MEDIA QUERIES -------------*/
@@ -636,18 +633,17 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 50px 20px;
 }
 
 #contact-form fieldset {
-    width: clamp(300px, 65vw, 600px);
+    width: 100%;
+    max-width: 600px;
     border: none;
-    margin: 50px 0 50px;
 }
 
 #contact-form legend {
     font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: .05rem;
     text-align: center;
 }
 
@@ -669,6 +665,11 @@ main {
 }
 
 .form__group small {
+    display: none;
+}
+
+.form__group:focus-within small {
+    display: flex;
     font-size: .9rem;
     color: var(--color-tertiary);
 }
@@ -679,13 +680,24 @@ main {
     width: 100%;
     height: 40px;
     padding: 23px 15px;
-    border: 1px solid var(--color-septenary);
+    border: none;
     border-bottom: 2px solid var(--color-secondary);
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
     margin-top: 5px;
-    font-size: 1rem;
+    font-size: .9rem;
     color: var(--color-secondary);
     background: var(--color-octonary);
+}
+
+.form__group input:focus,
+.form__group textarea:focus {
+    outline: none;
+    box-shadow: 0 3px 5px var(--color-septenary);
+}
+
+.form__group input::placeholder,
+.form__group textarea::placeholder {
+    font-size: .8rem;
 }
 
 .form__group textarea {
@@ -695,17 +707,6 @@ main {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-}
-
-.form__group input:focus,
-.form__group textarea:focus {
-    outline: none;
-    box-shadow: 0 5px 10px var(--color-tertiary);
-}
-
-.form__group input::placeholder,
-.form__group textarea::placeholder {
-    font-size: .8rem;
 }
 
 
@@ -741,8 +742,7 @@ main {
 }
 
 .container__privacy--policy label {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: .8rem;
     color: var(--color-secondary);
 }
 
@@ -755,12 +755,12 @@ main {
     border-radius: 5px;
     font-size: 1rem;
     background-color: var(--color-secondary);
-    box-shadow: 0 0 5px var(--color-quinary);
-    transition: background-color .4s ease;
+    box-shadow: 0 0 5px var(--color-septenary);
+    transition: background-color .3s ease;
 }
 
 #submit-btn:hover {
-    background-color: var(--color-quaternary);
+    background-color: var(--color-quinary);
 }
 
 #submit-btn.is-disabled,
@@ -828,12 +828,3 @@ main {
     visibility: hidden;
     overflow: hidden;
 }
-
-
-/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
-@media (min-width: 768px) {
-    #contact-form {
-        scroll-margin-top: 70px;
-    }
-}
-/*------------- END MEDIA QUERIES -------------*/
